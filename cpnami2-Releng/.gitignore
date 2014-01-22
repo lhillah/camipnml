@@ -3,3 +3,4 @@
 *.zip
 .settings
 .DS_Store
+*.jar
