@@ -1,0 +1,65 @@
+#*
+ *  Copyright 2009 Sorbonne Universités, Université Pierre & Marie Curie - CNRS UMR 7606 (LIP6/MoVe)
+ *  All rights reserved.   This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *
+ *  Initial contributor:
+ *    Lom Messan Hillah - <lom-messan.hillah@lip6.fr>
+ *
+ *  Mailing list:
+ *    lom-messan.hillah@lip6.fr
+ *#
+~~
+~~  Copyright 2009-2014 University Pierre & Marie Curie - UMR CNRS 7606 (LIP6/MoVe)
+~~  All rights reserved.   This program and the accompanying materials
+~~  are made available under the terms of the Eclipse Public License v1.0
+~~  which accompanies this distribution, and is available at
+~~  http://www.eclipse.org/legal/epl-v10.html
+~~
+~~  Initial contributor:
+~~    Lom Messan Hillah - <lom-messan.hillah@lip6.fr>
+~~
+~~  Mailing list:
+~~    lom-messan.hillah@lip6.fr
+~~
+ ------
+Download Cami - PNML ${cpnamiversion}
+ ------
+ ------
+2014-01
+ ------
+
+Download Cami to PNML Converter ${c2pversion}
+
+  Cami to PNML is distributed as a standalone jar, ready to be used on command line,
+or as a library in your application for whatever purpose. It runs on Java 1.7.
+  
+  Download it using {{{./download/cami2pnml-${c2pversion}-withDependencies.jar}this link}}.
+
+Usage
+
+  Usage information is provided {{{./usage.html}here}}.
+
+Model examples
+
+ We provide three P/T nets models in Cami and PNML, so that you may start using this application right away:
+ 
+ * {{{./models/Philo.cami}Dining philosophers}}
+ 
+ * {{{./models/Piscine.pnml}Swimming pool}}
+ 
+ * {{{./models/TokenRing-5.pnml}Token ring}}
+
+ There are actually many more P/T nets models available on the {{{http://mcc.lip6.fr/models.php}Model Checking Contest web site}}.
+ 
+Dependencies
+
+ * Runs on Java 1.7
+
+ * All other dependencies are included in the Cami to PNML standalone jar, including the libraries of {{{http://pnml.lip6.fr}PNML Framework.}}
+
+Feedback
+
+ Please report any feedback using the {{{./mail-lists.html}mailing-list}}.

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+<stringAttribute key="bad_container_name" value="/["/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/cpnami2-cpnami2"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="cpnami2-cpnami2"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-XX:+AggressiveHeap"/>
+<mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS">
+<mapEntry key="fr.lip6.move.pnml.cpnami.general.Oracle" value=""/>
+</mapAttribute>
+<listAttribute key="org.testng.eclipse.CLASS_TEST_LIST"/>
+<stringAttribute key="org.testng.eclipse.COMPLIANCE_LEVEL" value="JDK"/>
+<listAttribute key="org.testng.eclipse.GROUP_LIST">
+<listEntry value="OracleCami2Pnml"/>
+</listAttribute>
+<listAttribute key="org.testng.eclipse.GROUP_LIST_CLASS">
+<listEntry value="fr.lip6.move.pnml.cpnami.general.Oracle"/>
+</listAttribute>
+<stringAttribute key="org.testng.eclipse.LOG_LEVEL" value="2"/>
+<listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+<listAttribute key="org.testng.eclipse.SUITE_TEST_LIST">
+<listEntry value="CamiTestng.xml"/>
+</listAttribute>
+<intAttribute key="org.testng.eclipse.TYPE" value="2"/>
+</launchConfiguration>

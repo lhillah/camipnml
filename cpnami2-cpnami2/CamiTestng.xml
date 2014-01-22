@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="all tests" verbose="2">
+	<test name="TestImportExport">
+		<groups>
+			<run>
+				<!-- <include name="camifactory" /> -->
+				<include name="OracleCami2Pnml" />
+				<!-- <include name="OraclePnml2Cami" /> -->
+			</run>
+		</groups>
+		<packages>
+			<package name="fr.lip6.move.pnml.cpnami.general"></package>
+		</packages>
+	</test>
+</suite>
