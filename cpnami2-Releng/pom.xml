@@ -25,13 +25,6 @@
 		<manifestdir>META-INF</manifestdir>
 	</properties>
 
-	<distributionManagement>
-		<site>
-			<id>shango</id>
-			<url>scp://shango.rsr.lip6.fr/data/updateSite/</url>
-		</site>
-	</distributionManagement>
-
 	<reporting>
 		<plugins>
 			<plugin>
@@ -90,7 +83,7 @@
 	<inceptionYear>2009</inceptionYear>
 	<licenses>
 		<license>
-			<name>CNRS UMR 7606 - LIP6 / PNML Framework License</name>
+			<name>Cami to PNML License</name>
 			<url>http://pnml.lip6.fr/resources/License</url>
 		</license>
 	</licenses>
