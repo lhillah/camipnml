@@ -77,11 +77,11 @@
 		</developer>
 	</developers>
 	<scm>
-		<url>scm:svn:https://forge.cosyverif.org/svn/pnmlframework</url>
+		<url>scm:svn:https://github.com/lhillah/camipnml.git</url>
 	</scm>
 	<issueManagement>
-		<system>Redmine</system>
-		<url>https://forge.cosyverif.org/projects/pnmlframework/issues</url>
+		<system>GitHub</system>
+		<url>https://github.com/lhillah/camipnml/issues</url>
 	</issueManagement>
 	<ciManagement>
 		<system>Hudson</system>
