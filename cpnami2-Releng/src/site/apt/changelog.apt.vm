@@ -22,6 +22,11 @@ Changelog
 
 * What's new in version ${project.version}?
 
+  * Relies on the stable release 2.2.2 of {{{http://pnml.lip6.fr/}PNML Framework.}}
+  * Flush I/O before releasing resource
+
+* What's new in version 2.1.5?
+
   * Relies on the stable release 2.2.1 of {{{http://pnml.lip6.fr/}PNML Framework.}}
 
 * What's new in version 2.1.4?
