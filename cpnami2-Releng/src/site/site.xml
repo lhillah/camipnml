@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-     Copyright 2009 Universite Paris Ouest Nanterre & Sorbonne Universites, Univ. Paris 06 - CNRS UMR 7606 (LIP6/MoVe)
+     Copyright 2009-2014 Universite Paris Ouest Nanterre & Sorbonne Universites, Univ. Paris 06 - CNRS UMR 7606 (LIP6/MoVe)
      All rights reserved.   This program and the accompanying materials
      are made available under the terms of the Eclipse Public License v1.0
      which accompanies this distribution, and is available at
@@ -17,15 +17,6 @@
        lom-messan.hillah@lip6.fr
 
 -->
-<!-- Copyright 2009-2014 University Pierre & Marie Curie - UMR CNRS 7606 
-	(LIP6/MoVe) All rights reserved. This program and the accompanying materials 
-	are made available under the terms of the Eclipse Public License v1.0 which 
-	accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html 
-	Initial contributor: Lom Messan Hillah - <lom-messan.hillah@lip6.fr> Mailing 
-	list: lom-messan.hillah@lip6.fr -->
-<!-- Maven site descriptor for Cami - PNML Document Converter. Initial contributor: 
-	Lom M. Hillah - UPMC CNRS 7606 (LIP6/MoVe) License: Apache Software Foundation 
-	http://www.apache.org/licenses/LICENSE-2.0 -->
 
 <project xmlns="http://maven.apache.org/DECORATION/1.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
