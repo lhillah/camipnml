@@ -24,6 +24,7 @@ Changelog
 
   * Relies on the stable release 2.2.2 of {{{http://pnml.lip6.fr/}PNML Framework.}}
   * Flush I/O before releasing resource
+  * Clear input and output list between 2 successive invocations
 
 * What's new in version 2.1.5?
 
