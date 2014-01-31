@@ -73,7 +73,7 @@ public final class ConversionDriver implements Runner {
 	/**
 	 * The list of input files.
 	 */
-	private List<String> filesIn;;
+	private List<String> filesIn;
 	/**
 	 * The list of output files.
 	 */
@@ -109,6 +109,9 @@ public final class ConversionDriver implements Runner {
 
 		try {
 			long startTime = System.nanoTime();
+			filesOut.clear();
+			if (filesIn != null) 
+				filesIn.clear();
 			parseArgs(args);
 			long endTime = System.nanoTime();
 			JOURNAL.info("Conversion between CAMI and PNML took " + (endTime - startTime) / 1.0e9
