@@ -57,8 +57,9 @@ public final class CamiWriter implements Runnable {
 				bytebuf.clear();
 				msg = queue.take();
 			}
-			fos.close();
+			fc.force(true);
 			fc.close();
+			fos.close();
 		} catch (InterruptedException | IOException e) {
 			log.error(e.getMessage());
 		}
