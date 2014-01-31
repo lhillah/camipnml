@@ -32,8 +32,8 @@ public final class CamiWriter implements Runnable {
 	public static final int BUFFERSIZE = BUFFERSIZEKB * 1024;
 	private static final String FILE_ENCODING = "UTF-8";
 	private BlockingQueue<String> queue;
-	final FileOutputStream fos;
-	final FileChannel fc;
+	private final FileOutputStream fos;
+	private final FileChannel fc;
 
 	public CamiWriter(BlockingQueue<String> queue, String destination)
 			throws FileNotFoundException {
