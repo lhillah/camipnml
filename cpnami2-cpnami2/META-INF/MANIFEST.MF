@@ -4,7 +4,7 @@ ClassPath: lib/args4j-2.0.12.jar
 Bundle-ManifestVersion: 2
 Bundle-Name: CAMI to PNML Converter
 Bundle-SymbolicName: fr.lip6.move.pnml.cpnami2.cami2pnml;singleton:=true
-Bundle-Version: 2.1.6.qualifier
+Bundle-Version: 2.1.7.qualifier
 Export-Package: fr.lip6.move.cpnami.cami.c2p,
  fr.lip6.move.cpnami.p2c,
  fr.lip6.move.pnml.cpnami.cami,
