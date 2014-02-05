@@ -24,7 +24,7 @@ Changelog
 
   * Relies on version 2.2.4 of PNML Framework
 
-* What's new in version ${project.version}?
+* What's new in version 2.1.6?
 
   * Relies on the stable release 2.2.2 of {{{http://pnml.lip6.fr/}PNML Framework.}}
   
