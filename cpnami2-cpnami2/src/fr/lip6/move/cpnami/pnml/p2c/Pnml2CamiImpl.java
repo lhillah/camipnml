@@ -14,7 +14,7 @@
  *  Mailing list:
  *    lom-messan.hillah@lip6.fr
  */
-package fr.lip6.move.cpnami.p2c;
+package fr.lip6.move.cpnami.pnml.p2c;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +31,7 @@ import fr.lip6.move.pnml.cpnami.cami.Runner;
 import fr.lip6.move.pnml.cpnami.cami.constructor.CamiExporter;
 import fr.lip6.move.pnml.cpnami.cami.impl.CamiRepositoryImpl;
 import fr.lip6.move.pnml.cpnami.exceptions.CamiException;
+import fr.lip6.move.pnml.framework.general.PNType;
 import fr.lip6.move.pnml.framework.general.PnmlImport;
 import fr.lip6.move.pnml.framework.hlapi.HLAPIRootClass;
 import fr.lip6.move.pnml.framework.utils.ModelRepository;
@@ -44,7 +45,6 @@ import fr.lip6.move.pnml.framework.utils.exception.UnhandledNetType;
 import fr.lip6.move.pnml.framework.utils.exception.ValidationFailedException;
 import fr.lip6.move.pnml.framework.utils.exception.VoidRepositoryException;
 import fr.lip6.move.pnml.framework.utils.logging.LogMaster;
-import fr.lip6.move.pnml.framework.general.PNType;
 
 /**
  * Implements <em><b>Pnml2Cami</b></em> interface.

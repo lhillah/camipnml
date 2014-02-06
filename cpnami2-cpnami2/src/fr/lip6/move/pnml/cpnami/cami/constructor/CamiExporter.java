@@ -27,7 +27,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.commons.logging.Log;
 
-import fr.lip6.move.cpnami.p2c.CamiWriter;
+import fr.lip6.move.cpnami.pnml.p2c.CamiWriter;
 import fr.lip6.move.pnml.cpnami.cami.CamiRepository;
 import fr.lip6.move.pnml.cpnami.cami.model.Ca;
 import fr.lip6.move.pnml.cpnami.cami.model.Cm;

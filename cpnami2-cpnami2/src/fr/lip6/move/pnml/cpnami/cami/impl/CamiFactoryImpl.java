@@ -17,7 +17,7 @@
 package fr.lip6.move.pnml.cpnami.cami.impl;
 
 import fr.lip6.move.cpnami.cami.c2p.Cami2PnmlImpl2;
-import fr.lip6.move.cpnami.p2c.Pnml2CamiImpl;
+import fr.lip6.move.cpnami.pnml.p2c.Pnml2CamiImpl;
 import fr.lip6.move.pnml.cpnami.cami.Cami2Pnml;
 import fr.lip6.move.pnml.cpnami.cami.CamiFactory;
 import fr.lip6.move.pnml.cpnami.cami.Command;

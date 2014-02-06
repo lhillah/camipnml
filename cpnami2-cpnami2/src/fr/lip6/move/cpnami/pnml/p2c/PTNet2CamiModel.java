@@ -14,7 +14,7 @@
  *  Mailing list:
  *    lom-messan.hillah@lip6.fr
  */
-package fr.lip6.move.cpnami.p2c;
+package fr.lip6.move.cpnami.pnml.p2c;
 
 import org.apache.commons.logging.Log;
 

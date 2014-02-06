@@ -17,7 +17,7 @@
 /**
  * 
  */
-package fr.lip6.move.cpnami.p2c;
+package fr.lip6.move.cpnami.pnml.p2c;
 
 import java.util.ArrayList;
 import java.util.List;
