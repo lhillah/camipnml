@@ -4,7 +4,7 @@
 
 	<groupId>fr.lip6.move.cpnami2</groupId>
 	<artifactId>cpnami.releng</artifactId>
-	<version>2.1.7</version>
+	<version>2.1.8</version>
 	<packaging>pom</packaging>
 
 	<name>CAMI to PNML Releng</name>
@@ -19,7 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<thirdparty.version>2.2.0.qualifier</thirdparty.version>
 		<pnml.version>2.2.4.SNAPSHOT</pnml.version>
-		<c2pversion>2.1.7</c2pversion>
+		<c2pversion>2.1.8</c2pversion>
 		<kepler-repo.url>http://download.eclipse.org/releases/kepler</kepler-repo.url>
 		<license-p2-repo>http://download.eclipse.org/eclipse/updates/license/</license-p2-repo>
 		<manifestdir>META-INF</manifestdir>
