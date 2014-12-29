@@ -1,5 +1,6 @@
 ~~
-~~  Copyright 2009 Universite Paris Ouest and Sorbonne Universites, Univ. Paris 06 - CNRS UMR 7606 (LIP6)
+~~  Copyright 2009 Universite Paris Ouest and Sorbonne Universites,
+~~ 							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
 ~~
 ~~  All rights reserved.   This program and the accompanying materials
 ~~  are made available under the terms of the Eclipse Public License v1.0
@@ -17,10 +18,10 @@
 ~~
 
  -------
-Usage
+Usage Information
  -------
  -------
-2014-01
+2014-12
  -------
 
 Invocation
@@ -36,10 +37,12 @@ Run the application with <-h> or <--help> to get help.
 or <-p2c> (PNML to Cami).
   
   * You must also specify the path of an input file.
-  
-* Examples
 
-  Here are examples of invocation:  
+===
+  
+Examples
+
+  Here are some examples of invocation:  
   
   * <java -jar jar_name -p2c philo.pnml -o philo.cami>, converts <philo.pnml> into explicitly named <philo.cami>.
   
@@ -58,17 +61,20 @@ memory space for the heap. A simple way to do this is to pass the <-Xmx> argumen
  		
  		and then continue the command line as above: <jar_name -p2c philo.pnml -o philo.cami>
 
- Finally, instead of the set of advanced arguments above, you may just try the following single one: -XX:+AggressiveHeap
+ Finally, instead of the set of advanced arguments above, you may just try the following single one: <-XX:+AggressiveHeap>
 
-* Service result
+===
+
+Service result
 
   The result is a destination file (Cami or PNML), the path of which you may have provided at the invocation.
 If not, we deduce the destination file path from the input file one.
 
   Output messages are sent on stderr.
 
+===
 
 Import Petri net models from PNML in Macao or Coloane
 
-  To open PNML Petri Net models in Macao or Coloane, you should transform them first into Cami using this application.
+  To open PNML Petri Net models in Macao or Coloane, you should transform them first into Cami using Cami to PNML Converter.
 

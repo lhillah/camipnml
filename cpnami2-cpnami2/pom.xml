@@ -2,13 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>fr.lip6.move.cpnami2</groupId>
+		<groupId>fr.lip6.pnml.cpnami2</groupId>
 		<artifactId>cpnami.releng</artifactId>
-		<version>2.1.8</version>
+		<version>2.1.9</version>
 		<relativePath>../cpnami2-Releng/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>cami2pnml</artifactId>
+	<artifactId>fr.lip6.pnml.cpnami2.cami2pnml</artifactId>
 
 	<name>CAMI to PNML Converter</name>
 	<description>CAMI - PNML Converter is a simple conversion application of Petri models between CPN-AMI Cami format and PNML.</description>
@@ -29,27 +29,31 @@
 			<artifactId>org.eclipse.emf.common</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.lip6.move.pnml</groupId>
+			<groupId>org.eclipse</groupId>
+			<artifactId>ocl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>fr.lip6.pnml</groupId>
 			<artifactId>fr.lip6.move.pnml.framework.utils</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.lip6.move.pnml</groupId>
+			<groupId>fr.lip6.pnml</groupId>
 			<artifactId>fr.lip6.move.pnml.framework.coremodel</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.lip6.move.pnml</groupId>
+			<groupId>fr.lip6.pnml</groupId>
 			<artifactId>fr.lip6.move.pnml.framework.ptnet</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.lip6.move.pnml</groupId>
+			<groupId>fr.lip6.pnml</groupId>
 			<artifactId>fr.lip6.move.pnml.framework.symmetricnet</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.lip6.move.pnml</groupId>
+			<groupId>fr.lip6.pnml</groupId>
 			<artifactId>fr.lip6.move.pnml.framework.hlpn</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.lip6.move.pnml</groupId>
+			<groupId>fr.lip6.pnml</groupId>
 			<artifactId>fr.lip6.move.pnml.framework.pthlpng</artifactId>
 		</dependency>
 		<dependency>
@@ -57,7 +61,7 @@
 			<artifactId>args4j</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>fr.lip6.move.pnml</groupId>
+			<groupId>fr.lip6.pnml</groupId>
 			<artifactId>
 				fr.lip6.move.pnml.framework.3rdpartimports
 			</artifactId>
@@ -82,7 +86,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				 <version>2.4</version>
+				<version>2.4</version>
 				<configuration>
 					<archive>
 						<manifestFile>${manifestdir}/MANIFEST.MF</manifestFile>
@@ -100,7 +104,7 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<!--  <createSourcesJar>true</createSourcesJar>-->
+							<!-- <createSourcesJar>true</createSourcesJar> -->
 							<filters>
 								<filter>
 									<artifact>*:*</artifact>
@@ -116,21 +120,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<finalName>${project.artifactId}-${project.version}-withDependencies</finalName>
+					<finalName>${project.artifactId}-${project.version}</finalName>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -151,8 +142,8 @@
 				<version>1.7</version>
 				<configuration>
 					<target>
-						<copy file="target/${project.artifactId}-${project.version}-withDependencies.jar"
-							tofile="../cpnami2-Releng/src/site/resources/download/${project.artifactId}-${project.version}-withDependencies.jar" />
+						<copy file="target/${project.artifactId}-${project.version}.jar"
+							tofile="../cpnami2-Releng/src/site/resources/download/${project.artifactId}-${project.version}.jar" />
 					</target>
 				</configuration>
 				<executions>
@@ -166,7 +157,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<profiles>
 		<profile>
 			<id>release-sources</id>
@@ -175,7 +166,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-source-plugin</artifactId>
-						<version>2.2.1</version>
+						<version>2.4</version>
 						<executions>
 							<execution>
 								<id>attach-sources</id>

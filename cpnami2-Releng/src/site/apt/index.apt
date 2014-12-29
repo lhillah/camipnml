@@ -1,5 +1,6 @@
 ~~
-~~  Copyright 2009 Universite Paris Ouest and Sorbonne Universites, Univ. Paris 06 - CNRS UMR 7606 (LIP6)
+~~  Copyright 2009 Universite Paris Ouest and Sorbonne Universites,
+~~ 							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
 ~~
 ~~  All rights reserved.   This program and the accompanying materials
 ~~  are made available under the terms of the Eclipse Public License v1.0
@@ -20,7 +21,7 @@
 Convert Petri net models between Cami and PNML
  ------
  ------
-2014-01
+2014-12
  ------
 
 Cami to PNML converter
@@ -34,6 +35,8 @@ Petri net models in Cami, translated from PNML.
 
  Download this application from the {{{./download.html}dedicated page}}.  
 
+===
+
 Execution
 
   Cami to PNML Converter can simply be run on the command line and returns immediately.
@@ -41,16 +44,21 @@ Simply provide a list of PNML Documents or Cami files to convert. You may also p
 The paths(s) and name(s) of the output file(s) will be deduced from the path and names of 
 the input file(s) you provide at the {{{./usage.html}invocation}}.
 
-Supported standard types
+===
+
+Supported standardized Petri Net Type
  
-   In this version, the P/T Nets are supported. Symmetric nets support is no longer planned, since
+   Currently, only the P/T Nets are supported. Symmetric nets support is no longer planned, since
 the {{{https://forge.cosyverif.org/projects/formalisms}GrML}} format progressively subsumes the Cami format. 
 There is a conversion tool from {{{http://pnml.lip6.fr/applications.html}GrML (version 2013) to PNML}} for that purpose.
  
+===
+ 
 Experimental features
 
- In this release, the PNML Framework's fall-back mechanism is used. That is, if you are exporting a P/T net,
- you may choose to export it as a Core model, or as a P/T net in High-Level notation. 
- And if you are exporting a Symmetric net, you may choose to export it as a Core model, or as a High-Level Petri net.
- This latter case is the only one where Symmetric net are processed.
+ In this release, the PNML Framework's fall-back mechanism is used. That is, if you are exporting a P/T net from Cami,
+ you may choose to export it as a Core model, or as a P/T net in High-Level notation (aka PT-HLPNG).
+ 
+ If you are exporting a Symmetric net from Cami, you may choose to export it as a Core model, or as a High-Level Petri net.
+ This latter case is the only one where Symmetric net in Cami are processed.
   

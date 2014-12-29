@@ -1,5 +1,6 @@
 /**
- *  Copyright 2009 Universite Paris Ouest and Sorbonne Universites, Univ. Paris 06 - CNRS UMR 7606 (LIP6)
+ *  Copyright 2009 Universite Paris Ouest and Sorbonne Universites,
+ * 							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
  *
  *  All rights reserved.   This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
@@ -37,7 +38,7 @@ public class Oracle {
 	/**
 	 * Root path to Cami and Pnml files.
 	 */
-	private static final String RESOURCES = "/resources";
+	private static final String RESOURCES = "src/main/resources";
 	/**
 	 * Cami to Pnml option.
 	 */

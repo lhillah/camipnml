@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Main-Class: fr.lip6.move.pnml.cpnami.cami.CpnAmiMain
 Bundle-ManifestVersion: 2
 Bundle-Name: CAMI to PNML Converter
-Bundle-SymbolicName: fr.lip6.move.pnml.cpnami2.cami2pnml;singleton:=true
-Bundle-Version: 2.1.7.qualifier
+Bundle-SymbolicName: fr.lip6.pnml.cpnami2.cami2pnml;singleton:=true
+Bundle-Version: 2.1.9
 Export-Package: fr.lip6.move.cpnami.cami.c2p,
  fr.lip6.move.cpnami.pnml.p2c,
  fr.lip6.move.pnml.cpnami.cami,
