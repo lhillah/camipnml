@@ -23,6 +23,19 @@
 		<manifestdir>META-INF</manifestdir>
 	</properties>
 
+	<distributionManagement>
+		<repository>
+			<id>deployment</id>
+			<name>Public Releases</name>
+			<url>http://miage11.u-paris10.fr:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>deployment</id>
+			<name>Snapshots</name>
+			<url>http://miage11.u-paris10.fr:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
 	<reporting>
 		<plugins>
 			<plugin>
