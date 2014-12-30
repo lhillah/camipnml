@@ -26,7 +26,7 @@ Convert Petri net models between Cami and PNML
 
 Cami to PNML converter
 
-  This tool converts Petri net models from the {{{http://www.pnml.org}PNML}} standardized format into
+  This free and open source tool converts Petri net models from the {{{http://www.pnml.org}PNML}} standardized format into
 the CPN-AMI's {{{http://move.lip6.fr/software/CPNAMI/index.html} CPN-AMI}} Cami format.
 You can use it as a dependency in your application, or run it on the command-line.
 
