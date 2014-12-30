@@ -33,6 +33,12 @@
 		<version>1.1.1</version>
 	</skin>
 
+	<bannerRight>
+		<name>LIP6</name>
+		<src>images/logo-Lip6.png</src>
+		<href>http://www.lip6.fr</href>
+	</bannerRight>
+	
 	<custom>
 		<reflowSkin>
 			<smoothScroll>true</smoothScroll>
@@ -44,7 +50,7 @@
 				<name>Cami to PNML Converver</name>
 				<href>http://pnml.lip6.fr/camipnml/index.html</href>
 			</brand>
-			<slogan>Free Tool to transform your PNML Documents into Cami (Internal format of CPN-AMI platform)</slogan>
+			<slogan>Free Tool to transform your PNML P/T Documents into Cami (Format of the CPN-AMI platform)</slogan>
 			<titleTemplate>%2$s | %1$s</titleTemplate>
 			<toc>top</toc>
 			<tocTopMax>6</tocTopMax>

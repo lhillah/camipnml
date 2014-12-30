@@ -26,14 +26,14 @@ Convert Petri net models between Cami and PNML
 
 Cami to PNML converter
 
-  This application converts Petri net models from the {{{http://www.pnml.org}PNML}} standardized format into
+  This tool converts Petri net models from the {{{http://www.pnml.org}PNML}} standardized format into
 the CPN-AMI's {{{http://move.lip6.fr/software/CPNAMI/index.html} CPN-AMI}} Cami format.
 You can use it as a dependency in your application, or run it on the command-line.
 
  If you run it as a command-line tool, you may use Macao or Coloane to import
 Petri net models in Cami, translated from PNML.
 
- Download this application from the {{{./download.html}dedicated page}}.  
+ Download this tool from the {{{./download.html}dedicated page}}.  
 
 ===
 

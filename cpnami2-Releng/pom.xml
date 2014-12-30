@@ -7,7 +7,7 @@
 	<version>2.1.9</version>
 	<packaging>pom</packaging>
 
-	<name>CAMI to PNML Releng</name>
+	<name>CAMI to PNML Converter</name>
 	<url>http://pnml.lip6.fr/camipnml/</url>
 
 	<description>Cami to PNML Converter</description>
