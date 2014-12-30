@@ -74,7 +74,7 @@ If not, we deduce the destination file path from the input file one.
 
 ===
 
-Import Petri net models from PNML in Macao or Coloane
+Edit Petri net models from PNML in Macao or Coloane
 
-  To open PNML Petri Net models in Macao or Coloane, you should transform them first into Cami using Cami to PNML Converter.
+  To open and edit PNML Petri Net models in Macao or Coloane, you should transform them first into Cami using Cami to PNML Converter.
 

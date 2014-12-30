@@ -194,6 +194,8 @@
 					<excludes>
 						<exclude>target/**</exclude>
 						<exclude>.clover/**</exclude>
+						<exclude>**/*.cami</exclude>
+						<exclude>**/*.pnml</exclude>
 					</excludes>
 					<useDefaultExcludes>true</useDefaultExcludes>
 					<useDefaultMapping>true</useDefaultMapping>
