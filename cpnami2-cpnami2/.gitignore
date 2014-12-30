@@ -5,3 +5,5 @@ models
 resources
 *.zip
 .settings
+/test-output/
+/dependency-reduced-pom.xml
