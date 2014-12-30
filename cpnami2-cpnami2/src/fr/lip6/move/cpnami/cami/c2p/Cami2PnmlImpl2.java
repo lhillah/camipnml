@@ -1,5 +1,5 @@
 /**
- *  Copyright 2009 Universite Paris Ouest and Sorbonne Universites,
+ *  Copyright 2009-2015 Universite Paris Ouest and Sorbonne Universites,
  * 							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
  *
  *  All rights reserved.   This program and the accompanying materials
@@ -80,8 +80,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 	 * Create an instance of Log object name parameter; used to know who is
 	 * calling the logger like "import" or "export".
 	 */
-	private static final Log JOURNAL = LogMaster
-			.giveLogger(Cami2PnmlImpl2.class.getCanonicalName());
+	private static final Log JOURNAL = LogMaster.giveLogger(Cami2PnmlImpl2.class.getCanonicalName());
 	/**
 	 * Factory initialization.
 	 */
@@ -128,8 +127,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 	 * @throws CamiException
 	 *             CamiException
 	 */
-	public final void cami2Pnml(final List<String> camiFiles,
-			final List<String> pnmlFilesOut) throws CamiException {
+	public final void cami2Pnml(final List<String> camiFiles, final List<String> pnmlFilesOut) throws CamiException {
 
 		try {
 			linkCamiFilesToPnmlFiles(camiFiles, pnmlFilesOut);
@@ -141,8 +139,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 		}
 	}
 
-	private void linkCamiFilesToPnmlFiles(List<String> camiFiles,
-			List<String> pnmlFilesOut) {
+	private void linkCamiFilesToPnmlFiles(List<String> camiFiles, List<String> pnmlFilesOut) {
 
 		this.camiToPnmlFilesMap = new HashMap<String, String>();
 		int i = 0;
@@ -162,8 +159,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 	 * @throws CamiException
 	 *             something went wrong during conversion
 	 */
-	private void buildPNMLModels(final List<String> camiFiles,
-			final CLOptions clOptions) throws CamiException {
+	private void buildPNMLModels(final List<String> camiFiles, final CLOptions clOptions) throws CamiException {
 		// Initialization stuffs - How many CAMI files (CPN-AMI models) do we
 		// have?
 		int nbCamiFiles = 0;
@@ -201,9 +197,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 			for (int i = 0; i < nbCamiFiles; i++) {
 				camiFileIn = camiFiles.get(i);
 				// extracts the net name from the Cami file name
-				final String theNetName = myRunner
-						.extractNameWithoutExtension(myRunner
-								.extractLastName(camiFileIn));
+				final String theNetName = myRunner.extractNameWithoutExtension(myRunner.extractLastName(camiFileIn));
 				// Get camiFileIn opened - a cami command line is no more than
 				// 256
 				// characters.
@@ -214,8 +208,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 					camiRepToCamiFile.put(cr, camiFileIn);
 					readFileIntoQueue(cfile, cr, ccQueue);
 				} else {
-					JOURNAL.error(camiFileIn
-							+ " does not exist or is not a regular file.");
+					JOURNAL.error(camiFileIn + " does not exist or is not a regular file.");
 					continue;
 				}
 
@@ -272,19 +265,17 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 					}
 				}
 
-				Cami2PnmlInfoSet cp2IS = new Cami2PnmlInfoSet(cr, pnDoc, true,
-						clOptions, camiToPnmlFilesMap.get(camiFileIn));
+				Cami2PnmlInfoSet cp2IS = new Cami2PnmlInfoSet(cr, pnDoc, true, clOptions,
+						camiToPnmlFilesMap.get(camiFileIn));
 				c2pQueue.put(cp2IS);
 			}
 			CamiChunk cc1 = new CamiChunk(END, null);
 			ccQueue.put(cc1);
 			CamiChunk cc2 = new CamiChunk(END, null);
 			ccQueue.put(cc2);
-			Cami2PnmlInfoSet cp2IS1 = new Cami2PnmlInfoSet(null, null, false,
-					null, null);
+			Cami2PnmlInfoSet cp2IS1 = new Cami2PnmlInfoSet(null, null, false, null, null);
 			c2pQueue.put(cp2IS1);
-			Cami2PnmlInfoSet cp2IS2 = new Cami2PnmlInfoSet(null, null, false,
-					null, null);
+			Cami2PnmlInfoSet cp2IS2 = new Cami2PnmlInfoSet(null, null, false, null, null);
 			c2pQueue.put(cp2IS2);
 			crTh1.join(MILLISEC_1000);
 			crTh2.join(MILLISEC_1000);
@@ -303,21 +294,19 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 
 	}
 
-	private void readFileIntoQueue(File file, CamiRepository cr,
-			BlockingQueue<CamiChunk> queue)
-			throws UnsupportedEncodingException, IOException,
-			InterruptedException {
+	private void readFileIntoQueue(File file, CamiRepository cr, BlockingQueue<CamiChunk> queue)
+			throws UnsupportedEncodingException, IOException, InterruptedException {
 		final int bufferSizeKB = 8;
 		final int barraySizeKB = 4;
 		final int bufferSize = bufferSizeKB * 1024;
 		final int barraySize = barraySizeKB * 1024;
-		FileInputStream f = new FileInputStream(file);
-		FileChannel ch = f.getChannel();
-		ByteBuffer bb = ByteBuffer.allocateDirect(bufferSize);
-		byte[] barray = new byte[barraySize];
+		final FileInputStream f = new FileInputStream(file);
+		final FileChannel ch = f.getChannel();
+		final ByteBuffer bb = ByteBuffer.allocateDirect(bufferSize);
+		final byte[] barray = new byte[barraySize];
 		int nRead, nGet, lastOccLS;
-		StringBuilder str = new StringBuilder();
-		StringBuilder remaining = new StringBuilder("");
+		final StringBuilder str = new StringBuilder();
+		final StringBuilder remaining = new StringBuilder("");
 		JOURNAL.info("Reading Cami file " + file.getName());
 		while ((nRead = ch.read(bb)) != -1) {
 			if (nRead == 0)
@@ -331,6 +320,13 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 				str.append(remaining.toString());
 				str.append(new String(barray, 0, nGet, FILE_ENCONDING));
 				lastOccLS = str.lastIndexOf(NL);
+				if (lastOccLS < 0) {
+					JOURNAL.error("Error in reading Cami file " + file.getName()
+							+ " - probably line encoding problem (no occurrence of line feed (LF) character.");
+					JOURNAL.error("Skipping Cami file " + file.getName());
+					f.close();
+					return;
+				}
 				CamiChunk cc = new CamiChunk(str.substring(0, lastOccLS), cr);
 				queue.put(cc);
 				remaining.delete(0, remaining.length());
@@ -363,8 +359,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 	 *             CamiException
 	 * @deprecated
 	 */
-	public final void cami2p(final Vector<String> camiModelIn,
-			final String pnmlFileOut) throws CamiException {
+	public final void cami2p(final Vector<String> camiModelIn, final String pnmlFileOut) throws CamiException {
 		CamiRepository cr = null;
 		List<CamiRepository> camiRepositories = null;
 		try {
@@ -384,8 +379,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 				for (final CamiRepository aCr : camiRepositories) {
 					// Either remove the whole method or adapt to new
 					// thread-safe operations.
-					throw new CamiException(
-							"Cami2p: Operation no more supported");
+					throw new CamiException("Cami2p: Operation no more supported");
 				}
 				final List<String> exportFiles = new ArrayList<String>();
 				exportFiles.add(pnmlFileOut);
@@ -418,8 +412,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 	 *             CamiException
 	 * 
 	 */
-	public final void cami2Pnml(final List<String> camiFiles,
-			final List<String> pnmlFilesOut, final CLOptions clOptions)
+	public final void cami2Pnml(final List<String> camiFiles, final List<String> pnmlFilesOut, final CLOptions clOptions)
 			throws CamiException {
 
 		try {

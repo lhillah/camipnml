@@ -1,5 +1,5 @@
 /**
- *  Copyright 2009 Universite Paris Ouest and Sorbonne Universites,
+ *  Copyright 2009-2015 Universite Paris Ouest and Sorbonne Universites,
  * 							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
  *
  *  All rights reserved.   This program and the accompanying materials
@@ -38,7 +38,7 @@ public class Oracle {
 	/**
 	 * Root path to Cami and Pnml files.
 	 */
-	private static final String RESOURCES = "src/main/resources";
+	private static final String RESOURCES = "test" + File.separator + "main" + File.separator + "resources";
 	/**
 	 * Cami to Pnml option.
 	 */
@@ -65,10 +65,9 @@ public class Oracle {
 	 */
 	@BeforeTest(groups = { "Oracle" })
 	protected final void giveinfo() {
-		//basePath = new File("").getAbsolutePath().split("/trunk")[0] + "/trunk/cpnami2" + RESOURCES;
-		basePath = new File("").getAbsolutePath().split(RESOURCES)[0]  + RESOURCES;
-		camiPath = basePath + "/camiModels";
-		pnmlPath = basePath + "/pnmlModels";
+		basePath = new File("").getAbsolutePath().split(RESOURCES)[0]  + File.separator + RESOURCES;
+		camiPath = basePath + File.separator + "camiModels";
+		pnmlPath = basePath + File.separator + "pnmlModels";
 		System.out.println("the root folder is " + new File("").getAbsolutePath());
 		System.out.println("full path to resources is " + basePath);
 		System.out.println("path to camiModels " + camiPath);
@@ -107,7 +106,7 @@ public class Oracle {
 	 */
 	@DataProvider(name = "giveCamifiles")
 	public final Object[][] createDataCami() {
-		return new Object[][] { { CAMI2P, camiPath + "/philo_10p4-ord.cami" },
+		return new Object[][] { { CAMI2P, camiPath + File.separator + "philo_10p4-ord.cami" },
 				//{ CAMI2P, camiPath + "/Piscine.cami" }, 
 				//{ CAMI2P, camiPath + "/Token-ring.cami", },
 				//{ CAMI2P, camiPath + "/airplane-landing-detector.cami", },
@@ -121,7 +120,7 @@ public class Oracle {
 	 */
 	@DataProvider(name = "givePnmlfiles")
 	public final Object[][] createDataPnml() {
-		return new Object[][] { { P2CAMI, pnmlPath + "/philo_10p4-ord.pnml" },
+		return new Object[][] { { P2CAMI, pnmlPath + File.separator + "philo_10p4-ord.pnml" },
 				//{ P2CAMI, pnmlPath + "/Piscine.pnml" },
 				//{ P2CAMI, pnmlPath + "/Token-ring.pnml", },
 				//{ P2CAMI, pnmlPath + "/airplane-landing-detector.pnml", },

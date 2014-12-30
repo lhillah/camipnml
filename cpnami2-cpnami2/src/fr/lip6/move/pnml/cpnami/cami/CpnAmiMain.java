@@ -1,5 +1,5 @@
 /**
- *  Copyright 2009 Universite Paris Ouest and Sorbonne Universites,
+ *  Copyright 2009-2015 Universite Paris Ouest and Sorbonne Universites,
  * 							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
  *
  *  All rights reserved.   This program and the accompanying materials
@@ -60,6 +60,7 @@ public final class CpnAmiMain {
 		}
 		LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
 		loggerContext.stop();
+		return;
 		// throw new ExitException(Consts.EXIT_SUCCESS);
 	}
 

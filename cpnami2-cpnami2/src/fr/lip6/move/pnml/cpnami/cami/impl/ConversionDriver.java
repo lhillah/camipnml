@@ -1,5 +1,5 @@
 /**
- *  Copyright 2009 Universite Paris Ouest and Sorbonne Universites,
+ *  Copyright 2009-2015 Universite Paris Ouest and Sorbonne Universites,
  * 							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
  *
  *  All rights reserved.   This program and the accompanying materials
@@ -120,9 +120,8 @@ public final class ConversionDriver implements Runner {
 					+ " seconds.");
 		} catch (CamiException e1) {
 			JOURNAL.error(e1.getMessage());
-			// e1.printStackTrace();
+			//e1.printStackTrace();
 		}
-
 	}
 
 	/**
@@ -132,7 +131,7 @@ public final class ConversionDriver implements Runner {
 	 *            help message
 	 */
 	private void printHelp(String message) {
-		parser.setUsageWidth(PARSER_WIDTH);
+		//parser.setUsageWidth(PARSER_WIDTH);
 		System.err.println(message);
 		System.err.println(USAGE);
 		parser.printUsage(System.err);
