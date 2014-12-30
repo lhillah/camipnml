@@ -27,6 +27,7 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -97,9 +98,9 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 	 */
 	private static Runner myRunner = CamiFactory.SINSTANCE.createRunner();
 
-	private HashMap<String, String> camiToPnmlFilesMap;
+	private Map<String, String> camiToPnmlFilesMap;
 
-	private HashMap<CamiRepository, String> camiRepToCamiFile;
+	private Map<CamiRepository, String> camiRepToCamiFile;
 
 	/**
 	 * <!-- begin-user-doc --> Constructor. An instance of this class must be
@@ -192,7 +193,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 			Thread c2pTh2 = new Thread(exporter2);
 			c2pTh1.start();
 			c2pTh2.start();
-
+			CamiRepository cr;
 			// starts the processing of CPN-AMI models (one per CAMI file)
 			for (int i = 0; i < nbCamiFiles; i++) {
 				camiFileIn = camiFiles.get(i);
@@ -201,14 +202,22 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 				// Get camiFileIn opened - a cami command line is no more than
 				// 256
 				// characters.
-
-				final CamiRepository cr = new CamiRepositoryImpl();
+				
+				cr = new CamiRepositoryImpl();
 				File cfile = new File(camiFileIn);
 				if (cfile.exists() && cfile.isFile()) {
 					camiRepToCamiFile.put(cr, camiFileIn);
-					readFileIntoQueue(cfile, cr, ccQueue);
+					try {
+						readFileIntoQueue(cfile, cr, ccQueue);
+					} catch (UnsupportedEncodingException ex) {
+						cr = null;
+						cfile = null;
+						continue;
+					}
 				} else {
 					JOURNAL.error(camiFileIn + " does not exist or is not a regular file.");
+					cr = null;
+					cfile = null;
 					continue;
 				}
 
@@ -321,11 +330,15 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 				str.append(new String(barray, 0, nGet, FILE_ENCONDING));
 				lastOccLS = str.lastIndexOf(NL);
 				if (lastOccLS < 0) {
-					JOURNAL.error("Error in reading Cami file " + file.getName()
-							+ " - probably line encoding problem (no occurrence of line feed (LF) character.");
+					String msg = "Error in reading Cami file " + file.getName()
+							+ " - probably line encoding problem (no occurrence of line feed (LF) character.";
+					JOURNAL.error(msg);
 					JOURNAL.error("Skipping Cami file " + file.getName());
+					// Tell cami reader threads to stop this reading session
+					queue.put(new CamiChunk(EOF, null));
+					queue.put(new CamiChunk(EOF, null));
 					f.close();
-					return;
+					throw new UnsupportedEncodingException(msg);
 				}
 				CamiChunk cc = new CamiChunk(str.substring(0, lastOccLS), cr);
 				queue.put(cc);

@@ -163,7 +163,6 @@ public final class ConversionDriver implements Runner {
 				} else {
 					c2p.cami2Pnml(filesIn, filesOut, cloptions);
 				}
-				JOURNAL.info("CAMI model(s) exported  into PNML. ");
 
 			} else if (cloptions.isPnml2C()) {
 				final Pnml2Cami p2c = caf.createPnml2Cami();
@@ -173,9 +172,8 @@ public final class ConversionDriver implements Runner {
 					JOURNAL.info("Exporting PNML into Cami.");
 					p2c.pnml2Cami(filesIn, filesOut);
 				}
-				JOURNAL.info("PNML model(s) exported into CAMI. ");
 			}
-			JOURNAL.info("See: ");
+			JOURNAL.info("See (check error log if an output file is missing): ");
 			if (cloptions.isStdout()) {
 				JOURNAL.info("Printed result on Standard out.");
 			} else {

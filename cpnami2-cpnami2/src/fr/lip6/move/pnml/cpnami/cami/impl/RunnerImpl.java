@@ -44,11 +44,11 @@ public class RunnerImpl implements Runner {
 	/**
 	 * copyright.
 	 */
-	public static final String COPYRIGHT = "Copyright (C) 2009-2014 LIP6";
+	public static final String COPYRIGHT = "Copyright (C) 2009-2015 LIP6";
 	/**
 	 * Retrieves the journal this application, whose name is monJournal.
 	 */
-	private static final Logger JOURNAL = LogMaster.getLogger("monJournal");
+	private static final Logger JOURNAL = LogMaster.getLogger(RunnerImpl.class.getCanonicalName());
 	/**
 	 * The constant expressing the cami to pnml option.
 	 */
