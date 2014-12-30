@@ -1,5 +1,5 @@
 ~~
-~~  Copyright 2009 Universite Paris Ouest and Sorbonne Universites,
+~~  Copyright 2009-2015 Universite Paris Ouest and Sorbonne Universites,
 ~~ 							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
 ~~
 ~~  All rights reserved.   This program and the accompanying materials
@@ -21,7 +21,7 @@
 Convert Petri net models between Cami and PNML
  ------
  ------
-2014-12
+2015-01
  ------
 
 Cami to PNML converter
