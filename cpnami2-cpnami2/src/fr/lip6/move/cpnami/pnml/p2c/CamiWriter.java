@@ -27,7 +27,7 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.util.concurrent.BlockingQueue;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import fr.lip6.move.pnml.framework.utils.logging.LogMaster;
 
@@ -49,7 +49,7 @@ public final class CamiWriter implements Runnable {
 
 	@Override
 	public void run() {
-		Log log =  LogMaster.giveLogger(CamiWriter.class.getCanonicalName() + "#"
+		Logger log =  LogMaster.getLogger(CamiWriter.class.getCanonicalName() + "#"
 				+ Thread.currentThread().getId());
 		ByteBuffer bytebuf = ByteBuffer.allocateDirect(BUFFERSIZE);
 		String msg;

@@ -24,7 +24,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import fr.lip6.move.pnml.cpnami.cami.CamiFactory;
 import fr.lip6.move.pnml.cpnami.cami.CamiRepository;
@@ -59,7 +59,7 @@ public final class Pnml2CamiImpl implements Pnml2Cami {
 	 * Create an instance of Log object name parameter; used to know who is
 	 * calling the logger like "import" or "export".
 	 */
-	private static final Log JOURNAL = LogMaster.giveLogger(Pnml2CamiImpl.class.getCanonicalName());
+	private static final Logger JOURNAL = LogMaster.getLogger(Pnml2CamiImpl.class.getCanonicalName());
 	/**
 	 * Retrieves the singleton instance of Runner to use its utility methods.
 	 */

@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import fr.lip6.move.pnml.cpnami.cami.CamiRepository;
 import fr.lip6.move.pnml.cpnami.cami.constructor.Cami2CoreModel;
@@ -61,7 +61,7 @@ public final class Cami2PnmlExporter implements Runnable {
 	 * Create an instance of Log object name parameter; used to know who is
 	 * calling the logger like "import" or "export".
 	 */
-	private Log journal;
+	private Logger journal;
 
 	private final BlockingQueue<Cami2PnmlInfoSet> queue;
 
@@ -72,7 +72,7 @@ public final class Cami2PnmlExporter implements Runnable {
 
 	@Override
 	public void run() {
-		journal = LogMaster.giveLogger(Cami2PnmlExporter.class
+		journal = LogMaster.getLogger(Cami2PnmlExporter.class
 				.getCanonicalName() + "#" + Thread.currentThread().getId());
 
 		Cami2PnmlInfoSet c2pIS;

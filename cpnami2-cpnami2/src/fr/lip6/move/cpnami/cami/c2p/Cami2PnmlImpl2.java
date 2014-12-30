@@ -31,7 +31,7 @@ import java.util.Vector;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import fr.lip6.move.pnml.cpnami.cami.Cami2Pnml;
 import fr.lip6.move.pnml.cpnami.cami.CamiFactory;
@@ -80,7 +80,7 @@ public final class Cami2PnmlImpl2 implements Cami2Pnml {
 	 * Create an instance of Log object name parameter; used to know who is
 	 * calling the logger like "import" or "export".
 	 */
-	private static final Log JOURNAL = LogMaster.giveLogger(Cami2PnmlImpl2.class.getCanonicalName());
+	private static final Logger JOURNAL = LogMaster.getLogger(Cami2PnmlImpl2.class.getCanonicalName());
 	/**
 	 * Factory initialization.
 	 */

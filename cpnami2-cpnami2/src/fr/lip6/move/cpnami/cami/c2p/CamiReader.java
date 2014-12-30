@@ -21,7 +21,7 @@ package fr.lip6.move.cpnami.cami.c2p;
 import java.util.concurrent.BlockingQueue;
 import java.util.regex.Pattern;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import fr.lip6.move.pnml.cpnami.cami.CamiFactory;
 import fr.lip6.move.pnml.cpnami.cami.CamiRepository;
@@ -41,7 +41,7 @@ public final class CamiReader implements Runnable {
 
 	private final BlockingQueue<CamiChunk> queue;
 
-	private Log journal ;
+	private Logger journal ;
 
 	private BlockingQueue<String> notificationQueue;
 	/**
@@ -56,7 +56,7 @@ public final class CamiReader implements Runnable {
 
 	@Override
 	public void run() {
-		journal = LogMaster.giveLogger(CamiReader.class
+		journal = LogMaster.getLogger(CamiReader.class
 				.getCanonicalName() + "#" + Thread.currentThread().getId());
 		String camichunk;
 		String[] commands;

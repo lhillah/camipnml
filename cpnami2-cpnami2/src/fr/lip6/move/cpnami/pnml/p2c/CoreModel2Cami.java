@@ -18,7 +18,7 @@
  */
 package fr.lip6.move.cpnami.pnml.p2c;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import fr.lip6.move.pnml.cpnami.cami.CamiRepository;
 import fr.lip6.move.pnml.cpnami.cami.impl.CamiRepositoryImpl;
@@ -50,7 +50,7 @@ public final class CoreModel2Cami {
 	 * Create an instance of Log object name parameter; used to know who is
 	 * calling the logger like "import" or "export".
 	 */
-	private static final Log JOURNAL = LogMaster.giveLogger(CoreModel2Cami.class.getCanonicalName());
+	private static final Logger JOURNAL = LogMaster.getLogger(CoreModel2Cami.class.getCanonicalName());
 	/**
 	 * Cami Model Factory initialization.
 	 */

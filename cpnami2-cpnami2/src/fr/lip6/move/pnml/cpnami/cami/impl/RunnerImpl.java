@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import fr.lip6.move.pnml.cpnami.cami.Cami2Pnml;
 import fr.lip6.move.pnml.cpnami.cami.CamiFactory;
@@ -48,7 +48,7 @@ public class RunnerImpl implements Runner {
 	/**
 	 * Retrieves the journal this application, whose name is monJournal.
 	 */
-	private static final Log JOURNAL = LogMaster.giveLogger("monJournal");
+	private static final Logger JOURNAL = LogMaster.getLogger("monJournal");
 	/**
 	 * The constant expressing the cami to pnml option.
 	 */

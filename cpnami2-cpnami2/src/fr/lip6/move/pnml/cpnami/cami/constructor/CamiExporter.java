@@ -27,7 +27,7 @@ import java.util.Vector;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import fr.lip6.move.cpnami.pnml.p2c.CamiWriter;
 import fr.lip6.move.pnml.cpnami.cami.CamiRepository;
@@ -53,7 +53,7 @@ public final class CamiExporter {
 	 * Create an instance of Log object name parameter; used to know who is
 	 * calling the logger like "import" or "export".
 	 */
-	private static final Log JOURNAL = LogMaster.giveLogger(CamiExporter.class.getCanonicalName());
+	private static final Logger JOURNAL = LogMaster.getLogger(CamiExporter.class.getCanonicalName());
 	private static final String NL = "\n";
 	private static final String DE = "DE()";
 	private static final String FE = "FE()";

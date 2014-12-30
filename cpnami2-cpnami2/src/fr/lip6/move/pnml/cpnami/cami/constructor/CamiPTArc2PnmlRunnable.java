@@ -20,7 +20,7 @@ package fr.lip6.move.pnml.cpnami.cami.constructor;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
+import org.slf4j.Logger;
 
 import fr.lip6.move.pnml.cpnami.cami.CamiFactory;
 import fr.lip6.move.pnml.cpnami.cami.CamiRepository;
@@ -51,7 +51,7 @@ public final class CamiPTArc2PnmlRunnable implements Runnable {
 	/**
 	 * Create an instance of Log object name parameter.
 	 */
-	private Log journal;
+	private Logger journal;
 	/**
 	 * Cami repository
 	 */
@@ -85,7 +85,7 @@ public final class CamiPTArc2PnmlRunnable implements Runnable {
 
 	@Override
 	public void run() {
-		journal = LogMaster.giveLogger(CamiPTArc2PnmlRunnable.class
+		journal = LogMaster.getLogger(CamiPTArc2PnmlRunnable.class
 				.getCanonicalName() + "#" + Thread.currentThread().getId());
 		setArcs();
 	}
