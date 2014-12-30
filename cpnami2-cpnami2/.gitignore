@@ -2,7 +2,6 @@ bin
 target
 lib
 models
-resources
 *.zip
 .settings
 /test-output/
