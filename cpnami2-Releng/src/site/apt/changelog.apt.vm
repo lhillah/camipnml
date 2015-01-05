@@ -31,7 +31,7 @@ Changelog
   
   * Clears logback socket appender hanging upon termination
   
-  * Skips ill-encoded Cami file (line feed issue) 
+  * Skips encoded Cami file with line feed issue
 
 * What's new in version 2.1.8?
 

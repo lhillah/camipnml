@@ -54,7 +54,7 @@ There is a conversion tool from {{{http://pnml.lip6.fr/applications.html}GrML (v
  
 ===
  
-Experimental features
+Experimental feature
 
  In this release, the PNML Framework's fall-back mechanism is used. That is, if you are exporting a P/T net from Cami,
  you may choose to export it as a Core model, or as a P/T net in High-Level notation (aka PT-HLPNG).
