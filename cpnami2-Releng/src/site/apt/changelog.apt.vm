@@ -28,6 +28,10 @@ Changelog
 * What's new in version ${project.version}?
 
   * Relies on version 2.2.5 of PNML Framework
+  
+  * Clears logback socket appender hanging upon termination
+  
+  * Skips ill-encoded Cami file (line feed issue) 
 
 * What's new in version 2.1.8?
 
