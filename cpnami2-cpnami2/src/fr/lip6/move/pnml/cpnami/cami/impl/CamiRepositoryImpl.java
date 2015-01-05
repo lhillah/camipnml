@@ -28,11 +28,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 
+import org.slf4j.Logger;
+
 import fr.lip6.move.pnml.cpnami.cami.CamiFactory;
 import fr.lip6.move.pnml.cpnami.cami.CamiRepository;
 import fr.lip6.move.pnml.cpnami.cami.Command;
 import fr.lip6.move.pnml.cpnami.cami.CommandVisitor;
 import fr.lip6.move.pnml.cpnami.cami.Runner;
+import fr.lip6.move.pnml.cpnami.cami.constructor.Cami2PTNetModel;
 import fr.lip6.move.pnml.cpnami.cami.model.As;
 import fr.lip6.move.pnml.cpnami.cami.model.CAMICOMMANDS;
 import fr.lip6.move.pnml.cpnami.cami.model.Ca;
@@ -45,6 +48,7 @@ import fr.lip6.move.pnml.cpnami.cami.model.Pi;
 import fr.lip6.move.pnml.cpnami.cami.model.Po;
 import fr.lip6.move.pnml.cpnami.cami.model.Pt;
 import fr.lip6.move.pnml.cpnami.exceptions.CamiException;
+import fr.lip6.move.pnml.framework.utils.logging.LogMaster;
 
 /**
  * Implements the CamiRepository interface. Stores Cami objects of a Petri net
@@ -73,6 +77,10 @@ public class CamiRepositoryImpl implements CamiRepository {
 	 * Default capacity to initialize hash maps. High capacity
 	 */
 	private static final int DEFAULT_CAPACITY_HIGH = 30000;
+	/**
+	 * Create an instance of Log object name parameter.
+	 */
+	private Logger journal;
 	/**
 	 * The following maps store each kind of Arc command with the associated arc
 	 * id as an Integer.
@@ -205,40 +213,31 @@ public class CamiRepositoryImpl implements CamiRepository {
 
 		caMap = new ConcurrentHashMap<Integer, Ca>(DEFAULT_CAPACITY_HIGH);
 		cmMap = new ConcurrentHashMap<Cm, Integer>(DEFAULT_CAPACITY_LOW);
-		cmInvMap = new ConcurrentHashMap<Integer, List<Cm>>(
-				DEFAULT_CAPACITY_LOW);
+		cmInvMap = new ConcurrentHashMap<Integer, List<Cm>>(DEFAULT_CAPACITY_LOW);
 		placesMap = new ConcurrentHashMap<Integer, Cn>(DEFAULT_CAPACITY_MEDIUM);
-		transitionsMap = new ConcurrentHashMap<Integer, Cn>(
-				DEFAULT_CAPACITY_MEDIUM);
+		transitionsMap = new ConcurrentHashMap<Integer, Cn>(DEFAULT_CAPACITY_MEDIUM);
 		cnMap = new ConcurrentHashMap<Integer, Cn>(DEFAULT_CAPACITY_HIGH);
 		ctMap = new ConcurrentHashMap<Ct, Integer>(DEFAULT_CAPACITY_MEDIUM);
-		ctInvMap = new ConcurrentHashMap<Integer, List<Ct>>(
-				DEFAULT_CAPACITY_MEDIUM);
+		ctInvMap = new ConcurrentHashMap<Integer, List<Ct>>(DEFAULT_CAPACITY_MEDIUM);
 		piMap = new ConcurrentHashMap<Pi, Integer>(DEFAULT_CAPACITY_MEDIUM);
-		piInvMap = new ConcurrentHashMap<Integer, List<Pi>>(
-				DEFAULT_CAPACITY_EXTREMELYLOW);
+		piInvMap = new ConcurrentHashMap<Integer, List<Pi>>(DEFAULT_CAPACITY_EXTREMELYLOW);
 		poMap = new ConcurrentHashMap<Integer, Po>(DEFAULT_CAPACITY_MEDIUM);
 		ptMap = new ConcurrentHashMap<Pt, Integer>(DEFAULT_CAPACITY_MEDIUM);
-		ptInvMap = new ConcurrentHashMap<Integer, List<Pt>>(
-				DEFAULT_CAPACITY_MEDIUM);
+		ptInvMap = new ConcurrentHashMap<Integer, List<Pt>>(DEFAULT_CAPACITY_MEDIUM);
 		asMap = new ConcurrentHashMap<As, Integer>(DEFAULT_CAPACITY_MEDIUM);
 		csMap = new ConcurrentHashMap<Cs, Integer>(DEFAULT_CAPACITY_MEDIUM);
 		cmNodes = new ConcurrentSkipListSet<Integer>();
 
-		camiPnmlIds = new ConcurrentHashMap<Integer, String>(
-				DEFAULT_CAPACITY_HIGH);
-		pnmlCamiIds = new ConcurrentHashMap<String, Integer>(
-				DEFAULT_CAPACITY_HIGH);
+		camiPnmlIds = new ConcurrentHashMap<Integer, String>(DEFAULT_CAPACITY_HIGH);
+		pnmlCamiIds = new ConcurrentHashMap<String, Integer>(DEFAULT_CAPACITY_HIGH);
 
-		nodeKindMap = new ConcurrentHashMap<Integer, String>(
-				DEFAULT_CAPACITY_HIGH);
+		nodeKindMap = new ConcurrentHashMap<Integer, String>(DEFAULT_CAPACITY_HIGH);
 		scNodeMap = new ConcurrentHashMap<Integer, Cs>(DEFAULT_CAPACITY_MEDIUM);
 
-		csAsList = Collections.synchronizedList(new ArrayList<Command>(
-				DEFAULT_CAPACITY_MEDIUM));
+		csAsList = Collections.synchronizedList(new ArrayList<Command>(DEFAULT_CAPACITY_MEDIUM));
 
-		isObjectSCMap = new ConcurrentHashMap<Integer, String>(
-				DEFAULT_CAPACITY_LOW);
+		isObjectSCMap = new ConcurrentHashMap<Integer, String>(DEFAULT_CAPACITY_LOW);
+		initJournal();
 	}
 
 	/**
@@ -260,55 +259,38 @@ public class CamiRepositoryImpl implements CamiRepository {
 	 * @param nbPt
 	 *            the number of textual attribute positions
 	 */
-	public CamiRepositoryImpl(final int nbCa, final int nbCm, final int nbCn,
-			final int nbCt, final int nbPi, final int nbPo, final int nbPt) {
+	public CamiRepositoryImpl(final int nbCa, final int nbCm, final int nbCn, final int nbCt, final int nbPi,
+			final int nbPo, final int nbPt) {
 		final int trois = 3;
 		final int six = 6;
-		caMap = new ConcurrentHashMap<Integer, Ca>(
-				myRunner.optimalMapSize(nbCa));
-		cmMap = new ConcurrentHashMap<Cm, Integer>(
-				myRunner.optimalMapSize(nbCm));
-		cmInvMap = new ConcurrentHashMap<Integer, List<Cm>>(
-				myRunner.optimalMapSize(nbCm));
-		cnMap = new ConcurrentHashMap<Integer, Cn>(
-				myRunner.optimalMapSize(nbCn));
-		placesMap = new ConcurrentHashMap<Integer, Cn>(
-				myRunner.optimalMapSize(nbCn) / 2);
-		transitionsMap = new ConcurrentHashMap<Integer, Cn>(
-				myRunner.optimalMapSize(nbCn) / 2);
-		ctMap = new ConcurrentHashMap<Ct, Integer>(
-				myRunner.optimalMapSize(nbCt));
-		ctInvMap = new ConcurrentHashMap<Integer, List<Ct>>(
-				myRunner.optimalMapSize(nbCt));
-		piMap = new ConcurrentHashMap<Pi, Integer>(
-				myRunner.optimalMapSize(nbPi));
-		piInvMap = new ConcurrentHashMap<Integer, List<Pi>>(
-				myRunner.optimalMapSize(nbPi));
-		poMap = new ConcurrentHashMap<Integer, Po>(
-				myRunner.optimalMapSize(nbPo));
-		ptMap = new ConcurrentHashMap<Pt, Integer>(
-				myRunner.optimalMapSize(nbPt));
-		ptInvMap = new ConcurrentHashMap<Integer, List<Pt>>(
-				myRunner.optimalMapSize(nbPt));
+		caMap = new ConcurrentHashMap<Integer, Ca>(myRunner.optimalMapSize(nbCa));
+		cmMap = new ConcurrentHashMap<Cm, Integer>(myRunner.optimalMapSize(nbCm));
+		cmInvMap = new ConcurrentHashMap<Integer, List<Cm>>(myRunner.optimalMapSize(nbCm));
+		cnMap = new ConcurrentHashMap<Integer, Cn>(myRunner.optimalMapSize(nbCn));
+		placesMap = new ConcurrentHashMap<Integer, Cn>(myRunner.optimalMapSize(nbCn) / 2);
+		transitionsMap = new ConcurrentHashMap<Integer, Cn>(myRunner.optimalMapSize(nbCn) / 2);
+		ctMap = new ConcurrentHashMap<Ct, Integer>(myRunner.optimalMapSize(nbCt));
+		ctInvMap = new ConcurrentHashMap<Integer, List<Ct>>(myRunner.optimalMapSize(nbCt));
+		piMap = new ConcurrentHashMap<Pi, Integer>(myRunner.optimalMapSize(nbPi));
+		piInvMap = new ConcurrentHashMap<Integer, List<Pi>>(myRunner.optimalMapSize(nbPi));
+		poMap = new ConcurrentHashMap<Integer, Po>(myRunner.optimalMapSize(nbPo));
+		ptMap = new ConcurrentHashMap<Pt, Integer>(myRunner.optimalMapSize(nbPt));
+		ptInvMap = new ConcurrentHashMap<Integer, List<Pt>>(myRunner.optimalMapSize(nbPt));
 		final int nbNode = nbCa + nbCn;
 		cmNodes = new ConcurrentSkipListSet<Integer>();
-		nodeKindMap = new ConcurrentHashMap<Integer, String>(
-				myRunner.optimalMapSize(nbNode));
-		scNodeMap = new ConcurrentHashMap<Integer, Cs>(
-				myRunner.optimalMapSize(nbNode));
-		asMap = new ConcurrentHashMap<As, Integer>(
-				myRunner.optimalMapSize(trois * nbNode));
-		csMap = new ConcurrentHashMap<Cs, Integer>(
-				myRunner.optimalMapSize(trois * nbNode));
-		csAsList = Collections.synchronizedList(new ArrayList<Command>(myRunner
-				.optimalMapSize(six * nbNode)));
-		isObjectSCMap = new ConcurrentHashMap<Integer, String>(
-				myRunner.optimalMapSize(nbNode));
-		camiPnmlIds = new ConcurrentHashMap<Integer, String>(
-				DEFAULT_CAPACITY_HIGH);
-		pnmlCamiIds = new ConcurrentHashMap<String, Integer>(
-				DEFAULT_CAPACITY_HIGH);
+		nodeKindMap = new ConcurrentHashMap<Integer, String>(myRunner.optimalMapSize(nbNode));
+		scNodeMap = new ConcurrentHashMap<Integer, Cs>(myRunner.optimalMapSize(nbNode));
+		asMap = new ConcurrentHashMap<As, Integer>(myRunner.optimalMapSize(trois * nbNode));
+		csMap = new ConcurrentHashMap<Cs, Integer>(myRunner.optimalMapSize(trois * nbNode));
+		csAsList = Collections.synchronizedList(new ArrayList<Command>(myRunner.optimalMapSize(six * nbNode)));
+		isObjectSCMap = new ConcurrentHashMap<Integer, String>(myRunner.optimalMapSize(nbNode));
+		camiPnmlIds = new ConcurrentHashMap<Integer, String>(DEFAULT_CAPACITY_HIGH);
+		pnmlCamiIds = new ConcurrentHashMap<String, Integer>(DEFAULT_CAPACITY_HIGH);
+		initJournal();
+	}
 
+	private void initJournal() {
+		journal = LogMaster.getLogger(CamiRepositoryImpl.class.getCanonicalName());
 	}
 
 	/**
@@ -331,15 +313,13 @@ public class CamiRepositoryImpl implements CamiRepository {
 	 *      int)
 	 * 
 	 */
-	public final synchronized void addCommand(final Command cmd)
-			throws CamiException {
+	public final synchronized void addCommand(final Command cmd) throws CamiException {
 		switch (cmd.getCCIdentifier().getValue()) {
 		case CAMICOMMANDS.CA:
 			final Ca aCa = (Ca) cmd;
 			final Integer arId = Integer.valueOf(aCa.getArcID());
 			if (caMap.containsKey(arId)) {
-				throw new AlreadyExistException(
-						"CamiRepository#addCommand: CA command associated Id already exists.");
+				throw new AlreadyExistException("CamiRepository#addCommand: CA command associated Id already exists.");
 			}
 			caMap.put(arId, aCa);
 			nodeKindMap.put(arId, "arc");
@@ -353,8 +333,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 			if (aCm.getAttributeName().equalsIgnoreCase("valuation")
 					|| aCm.getAttributeName().equalsIgnoreCase("marking")) {
 				if (isAnnotationSc(aCm)) {
-					final Integer nodeId = Integer.valueOf(aCm
-							.getAssociatedNode());
+					final Integer nodeId = Integer.valueOf(aCm.getAssociatedNode());
 					if (!isObjectSCMap.containsKey(nodeId)) {
 						isObjectSCMap.put(nodeId, aCm.getValue());
 					}
@@ -373,8 +352,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 			final Cn aCn = (Cn) cmd;
 			final Integer nId = Integer.valueOf(aCn.getNodeId());
 			if (cnMap.containsKey(nId)) {
-				throw new AlreadyExistException(
-						"CamiRepository#addCommand: CN command associated Id already exists.");
+				throw new AlreadyExistException("CamiRepository#addCommand: CN command associated Id already exists.");
 			}
 			cnMap.put(nId, aCn);
 			if (aCn.getNodeType().equalsIgnoreCase("place")) {
@@ -392,8 +370,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 			Integer anId = Integer.valueOf(aCt.getAssociatedNode());
 			// there are often multiple CT commands of different attributes for
 			// the same node, so in the map we store the Ct command as key.
-			if (aCt.getAssociatedNode() == 1
-					&& "name".equalsIgnoreCase(aCt.getAttributeName())) {
+			if (aCt.getAssociatedNode() == 1 && "name".equalsIgnoreCase(aCt.getAttributeName())) {
 				netName = aCt.getAttributeName();
 			} else {
 
@@ -482,9 +459,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 			// nothing to do...
 			break;
 		default:
-			throw new CamiException(
-					"CamiRepository#addCommand: Unrecognized cami command"
-							+ cmd.getIdentifier());
+			throw new CamiException("CamiRepository#addCommand: Unrecognized cami command" + cmd.getIdentifier());
 		}
 	}
 
@@ -503,8 +478,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 	 *             The command type and the id suffice.
 	 * @see fr.lip6.move.pnml.cpnami.cami.CamiRepository#addCommand(Command)
 	 */
-	public final void removeCommand(final CAMICOMMANDS kind, final int objectId)
-			throws CamiException {
+	public final void removeCommand(final CAMICOMMANDS kind, final int objectId) throws CamiException {
 		final Integer oId = Integer.valueOf(objectId);
 		switch (kind.getValue()) {
 		case CAMICOMMANDS.CA:
@@ -524,8 +498,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 		case CAMICOMMANDS.CM:
 			if (!cmMap.isEmpty()) {
 				final Set<Entry<Cm, Integer>> mapValues = cmMap.entrySet();
-				for (final Iterator<Entry<Cm, Integer>> iter = mapValues
-						.iterator(); iter.hasNext();) {
+				for (final Iterator<Entry<Cm, Integer>> iter = mapValues.iterator(); iter.hasNext();) {
 					final Entry<Cm, Integer> anEnt = iter.next();
 					final Integer anId = anEnt.getValue();
 					if (anId.intValue() == objectId) {
@@ -539,8 +512,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 			if (!ctMap.isEmpty()) {
 				final Set<Entry<Ct, Integer>> mapValues = ctMap.entrySet();
 				Entry<Ct, Integer> anEnt;
-				for (final Iterator<Entry<Ct, Integer>> iter = mapValues
-						.iterator(); iter.hasNext();) {
+				for (final Iterator<Entry<Ct, Integer>> iter = mapValues.iterator(); iter.hasNext();) {
 					anEnt = iter.next();
 					if (anEnt.getValue().intValue() == objectId) {
 						iter.remove();
@@ -552,8 +524,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 		case CAMICOMMANDS.PI:
 			if (!piMap.isEmpty()) {
 				final Set<Entry<Pi, Integer>> mapValues = piMap.entrySet();
-				for (final Iterator<Entry<Pi, Integer>> iter = mapValues
-						.iterator(); iter.hasNext();) {
+				for (final Iterator<Entry<Pi, Integer>> iter = mapValues.iterator(); iter.hasNext();) {
 					final Entry<Pi, Integer> anEnt = iter.next();
 					final Integer anId = anEnt.getValue();
 					if (anId.intValue() == objectId) {
@@ -565,8 +536,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 		case CAMICOMMANDS.PT:
 			if (!ptMap.isEmpty()) {
 				final Set<Entry<Pt, Integer>> mapValues = ptMap.entrySet();
-				for (final Iterator<Entry<Pt, Integer>> iter = mapValues
-						.iterator(); iter.hasNext();) {
+				for (final Iterator<Entry<Pt, Integer>> iter = mapValues.iterator(); iter.hasNext();) {
 					final Entry<Pt, Integer> anEnt = iter.next();
 					final Integer anId = (Integer) anEnt.getValue();
 					if (anId.intValue() == objectId) {
@@ -600,8 +570,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 			// nothing to do...
 			break;
 		default:
-			throw new CamiException(
-					"CamiRepository#removeCommand: Unrecognized cami command");
+			throw new CamiException("CamiRepository#removeCommand: Unrecognized cami command");
 		}
 		// TODO remove all CS and AS commands for a given node.
 	}
@@ -617,8 +586,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 		boolean result = true;
 		String objKind = getObjectKind(Integer.valueOf(objectId));
 		try {
-			if ("place".equalsIgnoreCase(objKind)
-					|| "transition".equalsIgnoreCase(objKind)) {
+			if ("place".equalsIgnoreCase(objKind) || "transition".equalsIgnoreCase(objKind)) {
 				removeCommand(CAMICOMMANDS.CN_LITERAL, objectId);
 				removeCommand(CAMICOMMANDS.PO_LITERAL, objectId);
 				removeCommand(CAMICOMMANDS.CT_LITERAL, objectId);
@@ -1179,9 +1147,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 				final Integer netnodeId = Integer.valueOf(1);
 				final Cs aCs = scNodeMap.get(netnodeId);
 				if (aCs != null) { // 2==CLASS, 6==DOMAIN, 20==VAR
-					if (aCs.getDescNodeType() == deux
-							|| aCs.getDescNodeType() == six
-							|| aCs.getDescNodeType() == vingt) {
+					if (aCs.getDescNodeType() == deux || aCs.getDescNodeType() == six || aCs.getDescNodeType() == vingt) {
 						isCurrentNetSc = true;
 					}
 				}
@@ -1309,8 +1275,7 @@ public class CamiRepositoryImpl implements CamiRepository {
 						final Ct newCt = ModelFactory.SINSTANCE.createCt();
 						newCt.setCt("valuation", aCa.getArcID(), "1");
 						this.ctMap.put(newCt, arcId);
-						List<Ct> cts = Collections
-								.synchronizedList(new ArrayList<Ct>());
+						List<Ct> cts = Collections.synchronizedList(new ArrayList<Ct>());
 						cts.add(newCt);
 						this.ctInvMap.put(arcId, cts);
 					}
@@ -1488,13 +1453,17 @@ public class CamiRepositoryImpl implements CamiRepository {
 		 */
 
 		List<Ct> cts = ctInvMap.get(id);
-		for (final Ct ct : cts) {
-			if ("name".equalsIgnoreCase(ct.getAttributeName())) {
-				nodeName = ct.getValue();
-				break;
+		if (cts == null) {
+			journal.warn("There is no CT element associated to Cami node " + id);
+		} else {
+			for (final Ct ct : cts) {
+				if ("name".equalsIgnoreCase(ct.getAttributeName())) {
+					nodeName = ct.getValue();
+					break;
+				}
 			}
 		}
-		// }
+		/*** } ***/
 		return nodeName;
 	}
 

@@ -109,6 +109,12 @@ public final class CamiPTArc2PnmlRunnable implements Runnable {
 				sId = cr.getPnmlIdOfCamiId(anArc.getStartNodeID());
 				tId = cr.getPnmlIdOfCamiId(anArc.getEndNodeID());
 				// creates the arc
+				if (sId == null) {
+					journal.error("This translation will fail! Cami arc " + anArc.getArcID() + " does not have source node id!");
+				} 
+				if (tId == null) {
+					journal.error("This translation will fail! Cami arc " + anArc.getArcID() + " does not have target node id!");
+				}
 				myArc = new ArcHLAPI(arcId,
 						(NodeHLAPI) pnmlIdRep.getObject(sId),
 						(NodeHLAPI) pnmlIdRep.getObject(tId));

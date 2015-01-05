@@ -20,6 +20,8 @@ package fr.lip6.move.pnml.cpnami.cami.constructor;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+
 import fr.lip6.move.pnml.cpnami.cami.CamiFactory;
 import fr.lip6.move.pnml.cpnami.cami.CamiRepository;
 import fr.lip6.move.pnml.cpnami.cami.Runner;
@@ -33,6 +35,7 @@ import fr.lip6.move.pnml.framework.utils.IdRepository;
 import fr.lip6.move.pnml.framework.utils.ModelRepository;
 import fr.lip6.move.pnml.framework.utils.exception.InvalidIDException;
 import fr.lip6.move.pnml.framework.utils.exception.VoidRepositoryException;
+import fr.lip6.move.pnml.framework.utils.logging.LogMaster;
 import fr.lip6.move.pnml.ptnet.hlapi.AnnotationGraphicsHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.ArcGraphicsHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.ArcHLAPI;
@@ -58,6 +61,10 @@ public final class Cami2PTNetModel {
 	 */
 	private static Runner myRunner = CamiFactory.SINSTANCE.createRunner();
 	/**
+	 * Create an instance of Log object name parameter.
+	 */
+	private Logger journal;
+	/**
 	 * The singleton Pnml model repository that is being used by Cami2Pnml.
 	 */
 	private ModelRepository pnmlMr;
@@ -75,6 +82,8 @@ public final class Cami2PTNetModel {
 	 */
 	public Cami2PTNetModel() {
 		super();
+		journal = LogMaster.getLogger(Cami2PTNetModel.class
+				.getCanonicalName() + "#" + Thread.currentThread().getId());
 	}
 
 	/**
@@ -322,6 +331,12 @@ public final class Cami2PTNetModel {
 					sId = cr.getPnmlIdOfCamiId(anArc.getStartNodeID());
 					tId = cr.getPnmlIdOfCamiId(anArc.getEndNodeID());
 					// creates the arc
+					if (sId == null) {
+						journal.error("This translation will fail! Cami arc " + anArc.getArcID() + " does not have source node id!");
+					} 
+					if (tId == null) {
+						journal.error("This translation will fail! Cami arc " + anArc.getArcID() + " does not have target node id!");
+					}
 					myArc = new ArcHLAPI(arcId,
 							(NodeHLAPI) pnmlIdRep.getObject(sId),
 							(NodeHLAPI) pnmlIdRep.getObject(tId));
