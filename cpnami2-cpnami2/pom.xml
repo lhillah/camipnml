@@ -2,13 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>fr.lip6.pnml.cpnami2</groupId>
-		<artifactId>cpnami.releng</artifactId>
-		<version>2.1.9</version>
+		<groupId>fr.lip6.pnml</groupId>
+		<artifactId>cami2pnml.releng</artifactId>
+		<version>2.1.10</version>
 		<relativePath>../cpnami2-Releng/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>fr.lip6.pnml.cpnami2.cami2pnml</artifactId>
+	<artifactId>fr.lip6.pnml.cami2pnml</artifactId>
 
 	<name>CAMI to PNML Converter</name>
 	<description>CAMI - PNML Converter is a simple conversion application of Petri models between CPN-AMI Cami format and PNML.</description>
@@ -20,6 +20,7 @@
 			<artifactId>testng</artifactId>
 			<scope>test</scope>
 		</dependency>
+		  
 		<dependency>
 			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.ecore</artifactId>
@@ -28,33 +29,35 @@
 			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.common</artifactId>
 		</dependency>
+		<!--  
 		<dependency>
 			<groupId>org.eclipse</groupId>
 			<artifactId>ocl</artifactId>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>fr.lip6.pnml</groupId>
-			<artifactId>fr.lip6.move.pnml.framework.utils</artifactId>
+			<artifactId>fr.lip6.pnml.framework.utils</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>fr.lip6.pnml</groupId>
-			<artifactId>fr.lip6.move.pnml.framework.coremodel</artifactId>
+			<artifactId>fr.lip6.pnml.framework.coremodel</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>fr.lip6.pnml</groupId>
-			<artifactId>fr.lip6.move.pnml.framework.ptnet</artifactId>
+			<artifactId>fr.lip6.pnml.framework.ptnet</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>fr.lip6.pnml</groupId>
-			<artifactId>fr.lip6.move.pnml.framework.symmetricnet</artifactId>
+			<artifactId>fr.lip6.pnml.framework.symmetricnet</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>fr.lip6.pnml</groupId>
-			<artifactId>fr.lip6.move.pnml.framework.hlpn</artifactId>
+			<artifactId>fr.lip6.pnml.framework.hlpn</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>fr.lip6.pnml</groupId>
-			<artifactId>fr.lip6.move.pnml.framework.pthlpng</artifactId>
+			<artifactId>fr.lip6.pnml.framework.pthlpng</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>args4j</groupId>
@@ -63,7 +66,7 @@
 		<dependency>
 			<groupId>fr.lip6.pnml</groupId>
 			<artifactId>
-				fr.lip6.move.pnml.framework.3rdpartimports
+				fr.lip6.pnml.framework.3rdpartimports
 			</artifactId>
 		</dependency>
 	</dependencies>

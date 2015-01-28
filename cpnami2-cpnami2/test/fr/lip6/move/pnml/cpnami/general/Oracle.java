@@ -106,7 +106,8 @@ public class Oracle {
 	 */
 	@DataProvider(name = "giveCamifiles")
 	public final Object[][] createDataCami() {
-		return new Object[][] { { CAMI2P, camiPath + File.separator + "philo_10p4-ord.cami" },
+		return new Object[][] { { CAMI2P, camiPath + File.separator + "SafeBus-15-unfolded.cami" },
+				// CAMI2P, camiPath + File.separator + "philo_10p4-ord.cami" },
 				//{ CAMI2P, camiPath + "/Piscine.cami" }, 
 				//{ CAMI2P, camiPath + "/Token-ring.cami", },
 				//{ CAMI2P, camiPath + "/airplane-landing-detector.cami", },
@@ -154,7 +155,7 @@ public class Oracle {
 	 * @param pnmlFile
 	 *            PNML file path
 	 */
-	@Test(groups = { "OraclePnml2Cami" }, dataProvider = "givePnmlfiles")
+	//@Test(groups = { "OraclePnml2Cami" }, dataProvider = "givePnmlfiles")
 	public final void testPnmlImport(String conversionKind, String pnmlFile) {
 		try {
 			final String[] args = { conversionKind, pnmlFile, };
