@@ -106,7 +106,7 @@ public class Oracle {
 	 */
 	@DataProvider(name = "giveCamifiles")
 	public final Object[][] createDataCami() {
-		return new Object[][] { { CAMI2P, camiPath + File.separator + "SafeBus-15-unfolded.cami" },
+		return new Object[][] { { CAMI2P, camiPath + File.separator + "SafeBus-03-unfolded.cami" },
 				// CAMI2P, camiPath + File.separator + "philo_10p4-ord.cami" },
 				//{ CAMI2P, camiPath + "/Piscine.cami" }, 
 				//{ CAMI2P, camiPath + "/Token-ring.cami", },
