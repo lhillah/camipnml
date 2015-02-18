@@ -6,3 +6,4 @@ models
 .settings
 /test-output/
 /dependency-reduced-pom.xml
+cpJarToMCC-COMMON.launch
