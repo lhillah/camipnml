@@ -17,8 +17,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<thirdparty.version>2.2.2</thirdparty.version>
-		<pnml.version>2.2.6</pnml.version>
+		<thirdparty.version>2.2.7</thirdparty.version>
+		<pnml.version>2.2.7</pnml.version>
 		<c2pversion>2.1.10</c2pversion>
 		<manifestdir>META-INF</manifestdir>
 	</properties>
