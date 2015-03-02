@@ -21,7 +21,7 @@
 Usage Information
  -------
  -------
-2015-01
+2015-03
  -------
 
 Invocation
@@ -53,7 +53,7 @@ Examples
  If you want to handle large documents (up to a few hundreds MB), you should increase the available
 memory space for the heap. A simple way to do this is to pass the <-Xmx> argument to java:
 
-	* <java -Xmx7g jar_name -p2c philo.pnml -o philo.cami>, allocate 7 GB max memory to the heap.
+	* <java -Xmx7g jar_name -p2c philo.pnml -o philo.cami>, allocates 7 GB max memory to the heap.
 
  If you want to use advanced arguments for the VM, you may try the following:
  
@@ -61,20 +61,20 @@ memory space for the heap. A simple way to do this is to pass the <-Xmx> argumen
  		
  		and then continue the command line as above: <jar_name -p2c philo.pnml -o philo.cami>
 
- Finally, instead of the set of advanced arguments above, you may just try the following single one: <-XX:+AggressiveHeap>
+ Finally, instead of the set of advanced arguments above, you may just try the following more aggressive one: <-XX:+AggressiveHeap>
 
 ===
 
 Service result
 
   The result is a destination file (Cami or PNML), the path of which you may have provided at the invocation.
-If not, we deduce the destination file path from the input file one.
+If not, the tool deduces the destination file path from the input file one.
 
   Output messages are sent on stderr.
 
 ===
 
-Edit Petri net models from PNML in Macao or Coloane
+Editing Petri net models from PNML in Macao or Coloane
 
   To open and edit PNML Petri Net models in Macao or Coloane, you should transform them first into Cami using Cami to PNML Converter.
 
