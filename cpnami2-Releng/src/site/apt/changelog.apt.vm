@@ -27,6 +27,10 @@ Changelog
 
 * What's new in version ${project.version}?
 
+ * Relies on version 2.2.8 of PNML Framework 
+
+* What's new in version 2.1.9?
+
   * Relies on version 2.2.5 of PNML Framework
   
   * Clears logback socket appender hanging upon termination

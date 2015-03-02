@@ -112,13 +112,12 @@
 			<dependency>
 				<groupId>org.eclipse.emf</groupId>
 				<artifactId>org.eclipse.emf.ecore</artifactId>
-				<!--  <version>2.10.1</version>-->
-				<version>2.9.1-v20130827-0309</version>
+				<version>2.10.1</version>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.emf</groupId>
 				<artifactId>org.eclipse.emf.common</artifactId>
-				<version>2.9.1-v20130827-0309</version>
+				<version>2.10.1</version>
 			</dependency>
 
 			<dependency>
@@ -160,7 +159,7 @@
 			<dependency>
 				<groupId>fr.lip6.pnml</groupId>
 				<artifactId>fr.lip6.pnml.framework.3rdpartimports</artifactId>
-				<version>2.2.2</version>
+				<version>${pnml.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>args4j</groupId>
