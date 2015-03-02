@@ -20,7 +20,7 @@
 Download
  ------
  ------
-2015-01
+2015-03
  ------
 
 Download Cami to PNML Converter ${project.version}
@@ -28,7 +28,7 @@ Download Cami to PNML Converter ${project.version}
   Cami to PNML is distributed as a standalone jar, ready to be used on command line,
 or as a library in your application for whatever purpose. It runs on Java 1.7+. All its dependencies are included in the jar.
   
-  Download {{{./download/fr.lip6.pnml.cpnami2.cami2pnml-${project.version}.jar}Cami to PNML Converter ${project.version}}}.
+  Download {{{./download/fr.lip6.pnml.cami2pnml-${project.version}.jar}Cami to PNML Converter ${project.version}}}.
 
 * Usage
 
@@ -54,10 +54,16 @@ Models
 
 Requirements
 
- * Runs on Java 1.7+
+ * Runs on Java 1.8+
 
  * All other dependencies are included in the Cami to PNML standalone jar, including the libraries of {{{http://pnml.lip6.fr}PNML Framework.}}
 
+===
+
+Previous stable versions
+
+  * Download {{{./download/cami2pnml-2.1.8-withDependencies.jar}version 2.1.8}}. (Runs on Java 1.7+)
+  
 === 
 
 Feedback
