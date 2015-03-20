@@ -4,4 +4,6 @@ target
 .settings
 .DS_Store
 *.jar
+*.tgz
 /site-avant2015.xml
+/v2.1.10-Bug/
