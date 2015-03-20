@@ -323,6 +323,11 @@ public final class Cami2PTNetModel {
 				CamiPTArc2PnmlRunnable arCreator = new CamiPTArc2PnmlRunnable(cr, pnmlMr, defPage, allAr, half);
 				Thread tr = new Thread(arCreator);
 				tr.start();
+				try {
+					tr.join();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				Ca anArc;
 				pnmlIdRep  = pnmlMr.getCurrentIdRepository();
 				for (int i = half; i < nbArcs; i++) {
@@ -347,14 +352,7 @@ public final class Cami2PTNetModel {
 					// In Cami, an arc has no name, so nothing to do in this
 					// respect.
 					defPage.addObjectsHLAPI(myArc);
-				}
-				try {
-					tr.join();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				
+				}		
 				/*for (Ca aAr : allAr) {
 					arcId = myRunner.transformCamiId2XmlId(aAr.getArcID());
 					//cr.relateCamiPnmlIds(aAr.getArcID(), arcId);

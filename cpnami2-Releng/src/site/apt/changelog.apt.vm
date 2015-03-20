@@ -27,8 +27,14 @@ Changelog
 
 * What's new in version ${project.version}?
 
- * Relies on version 2.2.8 of PNML Framework 
-
+ * Fixed concurrency bug in serializing the PNML
+ 
+ * Relies on version 2.2.8.1 of PNML Framework
+ 
+* What's new in version 2.1.10?
+ 
+ * Relies on version 2.2.8 of PNML Framework
+  
 * What's new in version 2.1.9?
 
   * Relies on version 2.2.5 of PNML Framework

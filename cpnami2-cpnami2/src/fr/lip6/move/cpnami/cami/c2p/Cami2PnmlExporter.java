@@ -194,13 +194,13 @@ public final class Cami2PnmlExporter implements Runnable {
 						myPTNetModel.setNet(cr);
 						ptPnDoc.addNetsHLAPI(myPTNetModel.getNet());
 						Thread tr = myPTNetModel.setPlaces(cr);
-						myPTNetModel.setTransitions(cr);
 						try {
 							tr.join();
 						} catch (InterruptedException e) {
 							journal.error("#buildPNMLModel:" + e.getMessage());
 							e.printStackTrace();
 						}
+						myPTNetModel.setTransitions(cr);
 						myPTNetModel.setArcs(cr);
 					}
 				}
