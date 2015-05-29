@@ -19,9 +19,7 @@
        lom-messan.hillah@lip6.fr
 
 -->
-<configuration debug="true">
-	<!-- sends logs to logback-beagle -->
-	<consolePlugin silent="true" />
+<configuration debug="false">
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
