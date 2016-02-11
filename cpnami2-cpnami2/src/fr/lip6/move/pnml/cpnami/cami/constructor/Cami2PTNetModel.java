@@ -227,7 +227,7 @@ public final class Cami2PTNetModel {
 		Integer offX = null;
 		Integer offY = null;
 		if (plMark != null) {
-			final PTMarkingHLAPI ptMarking = new PTMarkingHLAPI(new Integer(
+			final PTMarkingHLAPI ptMarking = new PTMarkingHLAPI(new Long(
 					plMark), placeNode);
 			Pt aPt = cr.getMarkingPositionOfNode(pl.getNodeId());
 			// for (Pt aPt : allPt) {
@@ -399,8 +399,8 @@ public final class Cami2PTNetModel {
 		final String valuation = cr.getArcInscription(ar.getArcID());
 		try {
 			if (valuation != null) {
-				final Integer arcInsc = Integer.valueOf(Integer
-						.parseInt(valuation));
+				final Long arcInsc =Long.valueOf(Long
+						.parseLong(valuation));
 				final PTArcAnnotationHLAPI arcAnnotation = new PTArcAnnotationHLAPI(
 						arcInsc, null);
 				arc.setInscriptionHLAPI(arcAnnotation);

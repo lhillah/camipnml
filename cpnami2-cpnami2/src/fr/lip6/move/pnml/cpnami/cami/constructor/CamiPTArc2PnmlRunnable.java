@@ -155,8 +155,8 @@ public final class CamiPTArc2PnmlRunnable implements Runnable {
 		final String valuation = cr.getArcInscription(ar.getArcID());
 		try {
 			if (valuation != null) {
-				final Integer arcInsc = Integer.valueOf(Integer
-						.parseInt(valuation));
+				final Long arcInsc = Long.valueOf(Long
+						.parseLong(valuation));
 				final PTArcAnnotationHLAPI arcAnnotation = new PTArcAnnotationHLAPI(
 						arcInsc, null);
 				arc.setInscriptionHLAPI(arcAnnotation);

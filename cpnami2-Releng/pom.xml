@@ -4,7 +4,7 @@
 
 	<groupId>fr.lip6.pnml</groupId>
 	<artifactId>cami2pnml.releng</artifactId>
-	<version>2.1.12</version>
+	<version>2.1.13</version>
 	<packaging>pom</packaging>
 
 	<name>CAMI to PNML Converter</name>
@@ -17,8 +17,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<thirdparty.version>2.2.8.1</thirdparty.version>
-		<pnml.version>2.2.8.1</pnml.version>
+		<thirdparty.version>2.2.10</thirdparty.version>
+		<pnml.version>2.2.10</pnml.version>
 		<c2pversion>2.1.10</c2pversion>
 		<manifestdir>META-INF</manifestdir>
 	</properties>

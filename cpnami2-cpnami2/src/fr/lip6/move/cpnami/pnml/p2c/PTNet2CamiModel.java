@@ -228,7 +228,7 @@ public final class PTNet2CamiModel {
 	private void buildArcInscription(CamiRepository cr, ArcHLAPI arc, int arcID) throws CamiException {
 		if (arc.getInscriptionHLAPI() != null) {
 			final Ct arcVal = MF.createCt();
-			final Integer arcInsc = arc.getInscriptionHLAPI().getText();
+			final Long arcInsc = arc.getInscriptionHLAPI().getText();
 			arcVal.setCt("valuation", arcID, arcInsc != null ? arcInsc.toString() : "1");
 			cr.addCommand(arcVal);
 		}

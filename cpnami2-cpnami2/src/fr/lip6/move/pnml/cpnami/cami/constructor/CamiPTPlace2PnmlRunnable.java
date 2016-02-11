@@ -155,7 +155,7 @@ public final class CamiPTPlace2PnmlRunnable implements Runnable {
 		Integer offX = null;
 		Integer offY = null;
 		if (plMark != null) {
-			final PTMarkingHLAPI ptMarking = new PTMarkingHLAPI(new Integer(
+			final PTMarkingHLAPI ptMarking = new PTMarkingHLAPI(new Long(
 					plMark), placeNode);
 			Pt aPt = cr.getMarkingPositionOfNode(pl.getNodeId());
 			if (nodePosition != null) {
