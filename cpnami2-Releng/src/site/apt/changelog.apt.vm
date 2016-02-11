@@ -20,12 +20,16 @@
 Changelog of Cami to PNML Converter ${project.version}
  ------
  ------
-2015-03
+2016-02
  ------
 
 Changelog
 
 * What's new in version ${project.version}?
+
+ * Upgraded dependency on PNML Framework 2.2.10
+
+* What's new in version 2.1.11?
 
  * Fixed concurrency bug in serializing the PNML
  

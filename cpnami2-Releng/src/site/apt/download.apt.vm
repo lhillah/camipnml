@@ -20,7 +20,7 @@
 Download
  ------
  ------
-2015-03
+2016-02
  ------
 
 Download Cami to PNML Converter ${project.version}
@@ -60,8 +60,10 @@ Requirements
 
 ===
 
-Previous stable version
+Previous stable versions
 
+  * Download {{{./download/fr.lip6.pnml.cami2pnml-2.1.11.jar}version 2.1.11}}. (Runs on Java 1.7+)
+  
   * Download {{{./download/cami2pnml-2.1.8-withDependencies.jar}version 2.1.8}}. (Runs on Java 1.7+)
   
 === 
