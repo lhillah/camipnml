@@ -21,6 +21,7 @@
 		<pnml.version>2.2.10</pnml.version>
 		<c2pversion>2.1.10</c2pversion>
 		<manifestdir>META-INF</manifestdir>
+		<miage-repo.url>http://miage11.u-paris10.fr:8081/nexus/content/groups/public/</miage-repo.url>
 	</properties>
 
 	<distributionManagement>
@@ -35,7 +36,7 @@
 			<url>http://miage11.u-paris10.fr:8081/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
-	
+
 	<reporting>
 		<plugins>
 			<plugin>
@@ -59,7 +60,6 @@
 			</plugin>
 		</plugins>
 	</reporting>
-
 
 	<organization>
 		<name>Université Pierre et Marie Curie / CNRS UMR 7606 (LIP6 / MoVe)</name>
@@ -100,6 +100,12 @@
 		</mailingList>
 	</mailingLists>
 
+	<repositories>
+		<repository>
+			<id>miage11</id>
+			<url>${miage-repo.url}</url>
+		</repository>
+	</repositories>
 
 	<dependencyManagement>
 		<dependencies>
@@ -119,13 +125,11 @@
 				<artifactId>org.eclipse.emf.common</artifactId>
 				<version>2.10.1</version>
 			</dependency>
-
 			<dependency>
 				<groupId>org.eclipse</groupId>
 				<artifactId>ocl</artifactId>
 				<version>3.4.0</version>
 			</dependency>
-
 			<dependency>
 				<groupId>fr.lip6.pnml</groupId>
 				<artifactId>fr.lip6.pnml.framework.utils</artifactId>
@@ -170,8 +174,6 @@
 				<version>5.0.97</version> </dependency> -->
 		</dependencies>
 	</dependencyManagement>
-
-
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
