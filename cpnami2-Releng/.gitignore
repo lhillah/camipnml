@@ -8,3 +8,4 @@ target
 /site-avant2015.xml
 /v2.1.10-Bug/
 deployWebSite.sh
+src/site/resources/download/*.jar
