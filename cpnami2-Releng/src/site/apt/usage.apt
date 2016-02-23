@@ -21,7 +21,7 @@
 Usage Information
  -------
  -------
-2015-03
+2016-02
  -------
 
 Invocation
@@ -62,6 +62,14 @@ memory space for the heap. A simple way to do this is to pass the <-Xmx> argumen
  		and then continue the command line as above: <jar_name -p2c philo.pnml -o philo.cami>
 
  Finally, instead of the set of advanced arguments above, you may just try the following more aggressive one: <-XX:+AggressiveHeap>
+
+===
+
+Shell Script for your convenience
+
+If you find it useful to start with, use the following {{{./download/pnml2cami.sh} Shell script}} to help you include this converter
+in your tool kit. This version of the script launches the converter with -p2c (PNML to CAMI), but you can 
+easily change that.
 
 ===
 
