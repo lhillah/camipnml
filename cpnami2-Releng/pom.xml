@@ -10,7 +10,7 @@
 	<name>CAMI to PNML Converter</name>
 	<url>http://pnml.lip6.fr/camipnml/</url>
 
-	<description>Cami to PNML Converter</description>
+	<description>Cami to PNML Releng</description>
 	<modules>
 		<module>../cpnami2-cpnami2</module>
 	</modules>
@@ -49,6 +49,7 @@
 							<report>summary</report>
 							<report>dependency-info</report>
 							<report>dependencies</report>
+							<report>dependency-convergence</report>
 							<report>project-team</report>
 							<report>mailing-list</report>
 							<report>issue-tracking</report>
