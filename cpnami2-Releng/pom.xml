@@ -102,8 +102,10 @@
 
 	<repositories>
 		<repository>
-			<id>miage11</id>
-			<url>${miage-repo.url}</url>
+			<id>PNML updates</id>
+			<layout>p2</layout>
+			<!-- <url>http://pnml.lip6.fr/pnmlframework/updatesite-previous/</url> -->
+			<url>http://pnml.lip6.fr/pnmlframework/updatesite/</url>
 		</repository>
 	</repositories>
 
