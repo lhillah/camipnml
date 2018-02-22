@@ -86,7 +86,7 @@
 			<post>lom-messan.hillah@lip6.fr</post>
 		</mailingList>
 	</mailingLists>
-
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
