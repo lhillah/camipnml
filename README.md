@@ -1,7 +1,7 @@
 Cami to PNML Converter
 ============
 
-[![Build Status](https://travis-ci.org/lhillah/camipnml.svg?branch=master)](https://travis-ci.org/lhillah/camipnml)
+[![Build Status](https://travis-ci.org/lip6/camipnml.svg?branch=master)](https://travis-ci.org/lip6/camipnml)
 
 
 This is a model transformation tool that converts Petri nets from the [CPN-AMI's](http://move.lip6.fr/software/CPNAMI/) CAMI format into [Petri Net Markup Language](http://www.pnml.org) ([ISO/IEC 15909-2](http://www.iso.org/iso/catalogue_detail.htm?csnumber=43538)) and vice versa. 

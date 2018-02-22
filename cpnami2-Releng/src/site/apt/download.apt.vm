@@ -1,32 +1,15 @@
-#*
- *  Copyright 2009-2016 Universite Paris Ouest and Sorbonne Universites,
- * 							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
- *
- *  All rights reserved.   This program and the accompanying materials
- *  are made available under the terms of the Eclipse Public License v1.0
- *  which accompanies this distribution, and is available at
- *  http://www.eclipse.org/legal/epl-v10.html
- *
- *  Project leader / Initial Contributor:
- *    Lom Messan Hillah - <lom-messan.hillah@lip6.fr>
- *
- *  Contributors:
- *    ${ocontributors} - <$oemails}>
- *
- *  Mailing list:
- *    lom-messan.hillah@lip6.fr
- *#
+
  ------
 Download
  ------
  ------
-2016-02
+2018-02
  ------
 
 Download Cami to PNML Converter ${project.version}
 
   Cami to PNML is distributed as a standalone jar, ready to be used on command line,
-or as a library in your application for whatever purpose. It runs on Java 1.7+. All its dependencies are included in the jar.
+or as a library in your application for whatever purpose. It runs on Java 1.8+. All its dependencies are included in the jar.
   
   Download {{{./download/fr.lip6.pnml.cami2pnml-${project.version}.jar}Cami to PNML Converter ${project.version}}}.
 
@@ -62,6 +45,8 @@ Requirements
 
 Previous stable versions
 
+  * Download {{{./download/fr.lip6.pnml.cami2pnml-2.1.13.jar}version 2.1.13}}. (Runs on Java 1.8+)
+  
   * Download {{{./download/fr.lip6.pnml.cami2pnml-2.1.11.jar}version 2.1.11}}. (Runs on Java 1.7+)
   
   * Download {{{./download/cami2pnml-2.1.8-withDependencies.jar}version 2.1.8}}. (Runs on Java 1.7+)

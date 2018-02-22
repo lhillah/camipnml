@@ -1,24 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-
-     Copyright 2009-2016 Universite Paris Ouest and Sorbonne Universites,
-    							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
-
-     All rights reserved.   This program and the accompanying materials
-     are made available under the terms of the Eclipse Public License v1.0
-     which accompanies this distribution, and is available at
-     http://www.eclipse.org/legal/epl-v10.html
-
-     Project leader / Initial Contributor:
-       Lom Messan Hillah - <lom-messan.hillah@lip6.fr>
-
-     Contributors:
-       ${ocontributors} - <$oemails}>
-
-     Mailing list:
-       lom-messan.hillah@lip6.fr
-
--->
 <project xmlns="http://maven.apache.org/DECORATION/1.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd"
@@ -129,7 +109,7 @@
 
 	<body>
 		<head>
-			<link rel="author" href="http://lip6.fr/Lom-Messan.Hillah" />
+			<link rel="author" href="https://lip6.fr/Lom-Messan.Hillah" />
 		</head>
 
 		<breadcrumbs>
@@ -149,13 +129,13 @@
 		<menu name="Find out more" inherit="bottom">
 			<item name="PNML Framework" href="http://pnml.lip6.fr" />
 			<item name="PNML.org" href="http://www.pnml.org" />
-			<item name="Project on GitHub" href="https://github.com/lhillah/camipnml/tree/master/cpnami2-Releng" />
+			<item name="Project on GitHub" href="https://github.com/lip6/camipnml" />
 		</menu>
 		<menu name="Contribute" inherit="bottom">
 			<item name="Contribute" href="contribute.html" />
 			<item name="Issues"
-				href="https://github.com/lhillah/camipnml/issues" />
-			<item name="Fork on GitHub" href="https://github.com/lhillah/camipnml" />
+				href="https://github.com/lip6/camipnml/issues" />
+			<item name="Fork on GitHub" href="https://github.com/lip6/camipnml" />
 		</menu>
 		<menu name="Maven documentation" ref="reports" inherit="bottom" />
 	</body>

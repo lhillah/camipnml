@@ -1,10 +1,20 @@
 #! /bin/sh
+#  Sorbonne Université, CNRS, Laboratoire d'Informatique de Paris 6, LIP6
+#
+#  All rights reserved.   This program and the accompanying materials
+#  are made available under the terms of the Eclipse Public License v1.0
+#  which accompanies this distribution, and is available at
+#  http://www.eclipse.org/legal/epl-v10.html
+#
+#  Project leader
+#    Lom Messan Hillah - <lom-messan.hillah@lip6.fr>
+#
 
 # Older way: java -XX:+AggressiveHeap -jar $1 -c2p $2
 
 # Exemple : ./pnml2cami.sh path_to_models_folder
 
-JAR_PATH=fr.lip6.pnml.cami2pnml-2.1.13.jar
+JAR_PATH=fr.lip6.pnml.cami2pnml-2.2.0.jar
 
 NBPARAM=1
 E_NOFILE=66

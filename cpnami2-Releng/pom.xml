@@ -4,10 +4,10 @@
 
 	<groupId>fr.lip6.pnml</groupId>
 	<artifactId>cami2pnml.releng</artifactId>
-	<version>2.1.13</version>
+	<version>2.2.0</version>
 	<packaging>pom</packaging>
 
-	<name>CAMI to PNML Converter</name>
+	<name>CAMI to PNML</name>
 	<url>http://pnml.lip6.fr/camipnml/</url>
 
 	<description>Cami to PNML Releng</description>
@@ -17,32 +17,18 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<thirdparty.version>2.2.10</thirdparty.version>
-		<pnml.version>2.2.10</pnml.version>
-		<c2pversion>2.1.10</c2pversion>
+		<thirdparty.version>2.2.12</thirdparty.version>
+		<pnml.version>2.2.12</pnml.version>
+		<c2pversion>2.2.0</c2pversion>
 		<manifestdir>META-INF</manifestdir>
-		<miage-repo.url>http://miage11.u-paris10.fr:8081/nexus/content/groups/public/</miage-repo.url>
 	</properties>
-
-	<distributionManagement>
-		<repository>
-			<id>deployment</id>
-			<name>Public Releases</name>
-			<url>http://miage11.u-paris10.fr:8081/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>deployment</id>
-			<name>Snapshots</name>
-			<url>http://miage11.u-paris10.fr:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 
 	<reporting>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.8.1</version>
+				<version>2.9</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -63,17 +49,17 @@
 	</reporting>
 
 	<organization>
-		<name>Université Pierre et Marie Curie / CNRS UMR 7606 (LIP6 / MoVe)</name>
-		<url>http://www.lip6.fr/</url>
+		<name>Sorbonne Université, CNRS, Laboratoire d'Informatique de Paris 6, LIP6</name>
+		<url>https://www.lip6.fr/</url>
 	</organization>
 	<developers>
 		<developer>
 			<id>lhillah</id>
 			<name>Lom Messan Hillah</name>
 			<email>lom-messan.hillah@lip6.fr</email>
-			<url>http://lip6.fr/Lom-Messan.Hillah/</url>
+			<url>https://lip6.fr/Lom-Messan.Hillah/</url>
 			<organization>LIP6</organization>
-			<organizationUrl>http://www.lip6.fr/</organizationUrl>
+			<organizationUrl>https://www.lip6.fr/</organizationUrl>
 			<roles>
 				<role>team-leader</role>
 				<role>developer</role>
@@ -82,11 +68,11 @@
 		</developer>
 	</developers>
 	<scm>
-		<url>scm:git:https://github.com/lhillah/camipnml.git</url>
+		<url>scm:git:https://github.com/lip6/camipnml.git</url>
 	</scm>
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/lhillah/camipnml/issues</url>
+		<url>https://github.com/lip6/camipnml/issues</url>
 	</issueManagement>
 	<inceptionYear>2009</inceptionYear>
 	<licenses>
@@ -100,13 +86,6 @@
 			<post>lom-messan.hillah@lip6.fr</post>
 		</mailingList>
 	</mailingLists>
-
-	<repositories>
-		<repository>
-			<id>miage11</id>
-			<url>${miage-repo.url}</url>
-		</repository>
-	</repositories>
 
 	<dependencyManagement>
 		<dependencies>
@@ -169,7 +148,7 @@
 			<dependency>
 				<groupId>args4j</groupId>
 				<artifactId>args4j</artifactId>
-				<version>2.0.29</version>
+				<version>2.33</version>
 			</dependency>
 			<!-- <dependency> <artifactId>je</artifactId> <groupId>com.sleepycat</groupId> 
 				<version>5.0.97</version> </dependency> -->
@@ -182,68 +161,17 @@
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh</artifactId>
-				<version>2.10</version>
+				<version>3.0.0</version>
 			</extension>
 		</extensions>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>3.7.0</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.mycila</groupId>
-				<artifactId>license-maven-plugin</artifactId>
-				<version>2.0</version>
-				<configuration>
-					<basedir>${basedir}</basedir>
-					<header>http://pnml.lip6.fr/resources/License</header>
-					<strictCheck>true</strictCheck>
-					<quiet>false</quiet>
-					<failIfMissing>false</failIfMissing>
-					<aggregate>false</aggregate>
-					<includes>
-						<include>src/**</include>
-						<include>**/test/**</include>
-					</includes>
-					<excludes>
-						<exclude>target/**</exclude>
-						<exclude>.clover/**</exclude>
-						<exclude>**/*.cami</exclude>
-						<exclude>**/*.pnml</exclude>
-					</excludes>
-					<useDefaultExcludes>true</useDefaultExcludes>
-					<useDefaultMapping>true</useDefaultMapping>
-					<properties>
-						<year>${project.inceptionYear}-2016</year>
-						<organisation>
-							Universite Paris Ouest and Sorbonne Universites,
-							Univ. Paris 06 - CNRS UMR 7606 (LIP6)
-						</organisation>
-						<maincontributor>Lom Messan Hillah</maincontributor>
-						<email>lom-messan.hillah@lip6.fr</email>
-						<mailing>lom-messan.hillah@lip6.fr</mailing>
-					</properties>
-					<encoding>UTF-8</encoding>
-				</configuration>
-				<executions>
-					<execution>
-						<id>sources-header</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>format</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>check-headers</id>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -273,7 +201,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.19.1</version>
+					<version>2.20.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -283,12 +211,12 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.5</version>
+					<version>3.4</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-project-info-reports-plugin</artifactId>
-					<version>2.8.1</version>
+					<version>2.9</version>
 				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
