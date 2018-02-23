@@ -8,8 +8,8 @@ jdk:
   - oraclejdk8
 
 before_script:
-  - mkdir lib/
-  - wget -P lib/ https://github.com/lip6/pnmlframework/blob/gh-pages/plugins/fr.lip6.pnml.framework.3rdpartimports_2.2.12.jar
+  - mkdir -p $HOME/lib/
+  - wget -S -N -P $HOME/lib/ https://github.com/lip6/pnmlframework/blob/gh-pages/plugins/fr.lip6.pnml.framework.3rdpartimports_2.2.12.jar
   - mvn -f ./cpnami2-Releng/pom.xml validate -Ptravis-build -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 
 # script to launch
@@ -18,3 +18,4 @@ script: "./build.sh"
 cache:
   directories:
     - '$HOME/.m2/repository'
+    - '$HOME/lib'
